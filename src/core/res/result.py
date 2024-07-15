@@ -1,9 +1,19 @@
+## NOTE 📋:
+### this is the result design pattern
+####🔗 The Advantages🥳 of this design:
+    ##-💪🏻 no more exceptions to handle.
+    ##-💪🏻 better performance.
+
+####🔗 The Disadvantages😓 of this design:
+    ##-👎🏽 it is much harder to catch the errors
+
 class Result:
     def __init__(self):
         self.error = None
         self.value = None
         self.is_success = False
-        
+
+    # when Ok ✅
     @staticmethod
     def success(value = None):
         result = Result()
@@ -11,6 +21,7 @@ class Result:
         result.is_success = True
         return result
     
+    # when Error ❌
     @staticmethod
     def failure(error):
         result = Result()
