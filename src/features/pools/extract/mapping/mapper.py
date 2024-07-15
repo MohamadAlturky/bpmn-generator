@@ -1,4 +1,4 @@
-from ..models.types import LLMModelIn, LLMModelOut
+from ..models.types import  PoolsAndSwimlanes, ProcessDescription
 from ..contracts.api import Request, Response
 
 class Mapper:
@@ -7,9 +7,9 @@ class Mapper:
         pass
 
     # map the request to the input type of the service
-    def map_to_service(self,request : Request) -> LLMModelIn:
-        return LLMModelIn(nameLLMModelIn=request.nameRequest)
+    def map_to_service(self,request : Request) -> ProcessDescription:
+        return ProcessDescription(content=request.process_description)
 
     # map the output of the service to the type of the API response
-    def map_from_service(self,output : LLMModelOut) -> Response:
-        return Response(resultResponse=output.nameLLMModelOut)
+    def map_from_service(self,output : PoolsAndSwimlanes) -> Response:
+        return Response(pools=output.pools)
