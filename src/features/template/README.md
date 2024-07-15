@@ -6,10 +6,11 @@
 
 - action : this action takes a request and do sth.
 
-## there is 5 modules in every slice
+## there is 6 modules in every slice
 
-- model : contains the request body class.
+- contarct : contains the response and response body class.
 - validator : validates this request.
+- model : contains the classes that the llm will use them to generate the response.
+- mapping : contains the mapper between the contracts and the models.
 - router : defines the endpoint for this feature.
 - service : runs the business logic of the feature.
-- res : contains the response body class.
