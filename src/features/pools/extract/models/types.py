@@ -1,15 +1,25 @@
 from pydantic import BaseModel
+########################################
+## the input type of the service       #
+########################################
 
-# the input type of the service
-class LLMModelIn(BaseModel):
-    nameLLMModelIn: str
-    
+class ProcessDescription(BaseModel):
+    content: str
 
-# the output type of the service
-class LLMModelOut(BaseModel):
-    nameLLMModelOut: str
+#☁️☁️☁️☁️☁️☁️☁️☁️☁️☁️☁️☁️☁️☁️☁️☁️☁️#
 
+########################################
+## some inner type used by the service #
+########################################
 
-# some inner type used by the service
-class LLMModelInner(BaseModel):
-    nameLLMModelInner: str
+class Swimlane(BaseModel):
+    name : str
+
+class Pool(BaseModel):
+    name: str
+    swimlanes: list[Swimlane]
+
+class PoolsAndSwimlanes(BaseModel):
+    pools: list[Pool]
+
+#☁️☁️☁️☁️☁️☁️☁️☁️☁️☁️☁️☁️☁️☁️☁️☁️☁️#
