@@ -28,7 +28,7 @@ class Service:
 
         agent = Agent(
             role="business process analyst",
-            goal="Extract pools and swimlanes from the given process description and organize them for BPMN diagram generation.",
+            goal="Extract pools and swimlanes from the given process description {process_description} and organize them for BPMN diagram generation.",
             backstory="As a business process analyst, you analyze process descriptions to extract and organize elements needed for creating BPMN diagrams.",
             allow_delegation=False,
             verbose=True,
@@ -37,7 +37,7 @@ class Service:
 
         task = Task(
             description=(
-                "Extract the pools and swimlanes from the given process description. "
+                "Extract the pools and swimlanes from the given process description {process_description}. "
                 "Each pool should represent a major participant (e.g., organization or system), "
                 "and each swimlane should represent specific roles or departments within these pools. "
                 "List each pool and its corresponding swimlanes, and for each swimlane, provide a sequence of activities. "
