@@ -24,7 +24,7 @@ from ..mapping.mapper import Mapper
 #########################################
 
 router = APIRouter(
-    prefix="/template"
+    prefix="/pools"
 )
 #☁️☁️☁️☁️☁️☁️☁️☁️☁️☁️☁️☁️☁️☁️☁️☁️☁️#
 
@@ -34,7 +34,7 @@ router = APIRouter(
 ## responsibility: define the endpoint ##
 #########################################
 
-@router.post("/action")
+@router.post("/extract")
 def extract_pools(request:Request):
     
     #########################################
