@@ -1,12 +1,12 @@
 from pydantic import BaseModel
-
+from ..models.types import Pool
 
 # the response that will be return via API
 class Response(BaseModel):
-    resultResponse:str
+    pools: list[Pool]
 
 
 
 # the request that will be bound from the request body
 class Request(BaseModel):
-    nameRequest: str
+    process_description: str
