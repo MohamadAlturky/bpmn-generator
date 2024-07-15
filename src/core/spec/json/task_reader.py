@@ -1,6 +1,11 @@
 import json
 from core.spec.model.task_spec import TaskSpecification
 
+
+#############################################################
+## Loads the task specification from some josn file.📂    ##
+#############################################################
+
 def load_task_specification(file_path) -> TaskSpecification:
     try:
         with open(file_path, 'r') as json_file:
