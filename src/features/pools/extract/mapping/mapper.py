@@ -11,5 +11,5 @@ class Mapper:
         return ProcessDescription(content=request.process_description)
 
     # map the output of the service to the type of the API response
-    def map_from_service(self,output : PoolsAndSwimlanes) -> Response:
-        return Response(pools=output.pools)
+    def map_from_service(self,output) -> Response:
+        return Response(nodes=output)

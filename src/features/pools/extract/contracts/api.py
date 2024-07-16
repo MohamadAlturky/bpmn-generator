@@ -3,7 +3,8 @@ from ..models.types import Pool
 
 # the response that will be return via API
 class Response(BaseModel):
-    pools: list[Pool]
+    # pools: list[Pool]
+    nodes: object
 
 
 

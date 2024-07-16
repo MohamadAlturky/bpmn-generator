@@ -11,6 +11,7 @@ from dotenv import load_dotenv
 ##🔗 from application core
 from core.res.result import Result
 from core.settings import env
+from core.presenters.presenter import NodePresenter
 ##🔗 from the same slice
 from ..models.types import ProcessDescription, PoolsAndSwimlanes
 #☁️☁️☁️☁️☁️☁️☁️☁️☁️☁️☁️☁️☁️☁️☁️☁️☁️#
@@ -40,11 +41,11 @@ class Service:
                 "Extract the pools and swimlanes from the given process description {process_description}. "
                 "Each pool should represent a major participant (e.g., organization or system), "
                 "and each swimlane should represent specific roles or departments within these pools. "
-                "List each pool and its corresponding swimlanes, and for each swimlane, provide a sequence of activities. "
-                "Ensure each activity is clearly associated with its respective pool and swimlane."
+                "List each pool and its corresponding swimlanes."
+                "Don't repeat the pools or the swimlanes and make sure to give a short names for pools and swimlanes"
             ),
             expected_output=(
-                "A structured list of pools and swimlanes with their respective activities, formatted for BPMN diagram creation."
+                "A structured list of pools and swimlanes, formatted for BPMN diagram creation."
             ),
             output_pydantic=PoolsAndSwimlanes,
             agent=agent,
@@ -60,5 +61,5 @@ class Service:
         }
 
         result : PoolsAndSwimlanes = executor.kickoff(inputs)
-        
-        return Result.success(PoolsAndSwimlanes(pools=result.pools))
+        presenter  = NodePresenter()
+        return Result.success(presenter.from_pools(result))
