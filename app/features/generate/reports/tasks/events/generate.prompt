@@ -1,71 +1,15 @@
-As a BPMN (Business Process Model and Notation) expert, I'd be happy to explain the different types of gateways in BPMN and provide guidance on extracting them from process descriptions.
+In BPMN we identify:
+Tasks: Activities that perform some work or operation, e.g., "Send Invoice" or "Process Claim". They are usually represented by an oval shape.
+Events: Points of interest in the process that mark a specific moment or occurrence, e.g., "Order Placed", "Payment Received", or "Timeout Expired". They are often represented by a diamond shape.
+Think of it like this: Tasks are the "doers" while Events are the "happenings"!
 
-**Gateways**
-
-In BPMN, gateways are used to control the flow of a process. They allow for decisions, parallelism, or synchronization of threads. There are three main types of gateways:
-
-### 1. **Exclusive Gateway (XOR Gate)**
-
-The Exclusive Gateway is also known as an XOR gate. It is used to make a decision based on a condition. Only one branch of the gateway will be executed, depending on the outcome of the condition.
-
-Example:
-```
-IF (condition) THEN
-// execute this path
-ELSE
-// execute this other path
-ENDIF
-```
-In BPMN, an Exclusive Gateway is represented by a diamond-shaped symbol with two outgoing sequence flows. The condition that determines which branch to take is typically specified in a Condition Expression or a Decision Table.
-
-### 2. **Parallel Gateway (AND Gate)**
-
-The Parallel Gateway is also known as an AND gate. It allows multiple branches of the gateway to be executed concurrently. All branches must complete before the process can continue.
-
-Example:
-```
-IF (condition1) THEN
-// execute this path
-ENDIF
-IF (condition2) THEN
-// execute this other path
-ENDIF
-// all paths must complete before continuing
-```
-In BPMN, a Parallel Gateway is represented by a diamond-shaped symbol with two or more outgoing sequence flows. The process will wait for all branches to complete before proceeding.
-
-### 3. **Inclusive Gateway (OR Gate)**
-
-The Inclusive Gateway is also known as an OR gate. It allows multiple branches of the gateway to be executed concurrently, and only one branch needs to complete before the process can continue.
-
-Example:
-```
-IF (condition1) THEN
-// execute this path
-ENDIF
-IF (condition2) THEN
-// execute this other path
-ENDIF
-// at least one path must complete before continuing
-```
-In BPMN, an Inclusive Gateway is represented by a diamond-shaped symbol with two or more outgoing sequence flows. The process will wait for any branch to complete before proceeding.
-
-**Extracting gateways from process descriptions**
-
-To extract gateways from process descriptions, follow these steps:
-
-1. Identify the decision-making points in the process.
-2. Determine whether the decisions are based on conditions (Exclusive Gateway), parallel execution of multiple branches (Parallel Gateway), or concurrent execution with only one branch required to complete (Inclusive Gateway).
-3. Check if the gateway is represented by a diamond-shaped symbol with outgoing sequence flows.
-4. Verify that the condition expressions or decision tables are correctly specified.
-
-By following these steps, you should be able to accurately extract and identify the different types of gateways in BPMN process descriptions.
-
-Extract the gateways in this process description:
+Extract the events with it's types and a full description for the event from this process description:
 ```
 {process_description}
 ```
 
-Notes:
-- name the gateways
-- show the inputs and outputs of the gateway
+**Notes**:
+- Make sure that the names of the events are short and consice.
+- Don't specify the tasks as events.
+- If the event doesn't explicitly specified in the text don't extract it.
+- specify the start event and the end event in the process.

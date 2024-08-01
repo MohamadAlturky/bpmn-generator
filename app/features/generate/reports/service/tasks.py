@@ -49,7 +49,8 @@ def generate_tasks_report(process_description : ProcessDescription):
     llm = Ollama(model="llama3.1", base_url=os.getenv("OLLAMA_HOST"))
     complete_prompt = PROMPT.replace("{tasks}", generated)
     generated_json = llm.invoke(complete_prompt)
-    
+    print("generate_tasks_report", generated_json)
+
     json_res = parse_json(generated_json)
     if json_res.is_failure:
         return json_res

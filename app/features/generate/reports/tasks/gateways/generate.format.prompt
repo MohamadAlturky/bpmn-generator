@@ -1,1 +1,33 @@
-formate
+as a json expert represent the given gateways in a json list.
+
+**Expected output**:
+a valid json list object of this formate 
+{
+	"name":"string",
+	"type":"string",
+	"description":"string",
+	"inputs":[
+		{
+			"name":"string",
+			"description":"string"
+		}
+	],
+	"outputs":[
+		{
+			"name":"string",
+			"description":"string"
+		}
+	],
+}
+
+**The Gateways**
+{gateways}
+
+**Notes**:
+write the json inside a section of this formate
+
+```
+
+the json object
+
+```

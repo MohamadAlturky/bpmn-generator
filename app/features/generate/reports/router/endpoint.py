@@ -68,7 +68,6 @@ def report(request:Request):
     #########################################
 
     service = Service()
-    
     try:
         result = service.serve(inputs)
     except Exception:
