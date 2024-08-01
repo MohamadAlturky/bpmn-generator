@@ -1,5 +1,6 @@
 from fastapi import FastAPI
 from features.template.action.router.endpoint import router as template_router
+from features.generate.reports.router.endpoint import router as reports_router
 from features.pools.extract.router.endpoint import router as pools_extraction_router
 from fastapi.middleware.cors import CORSMiddleware
 
@@ -17,4 +18,5 @@ app.add_middleware(
 )
 
 app.include_router(template_router)
+app.include_router(reports_router)
 app.include_router(pools_extraction_router)
