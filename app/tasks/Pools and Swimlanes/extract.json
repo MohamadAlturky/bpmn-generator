@@ -1,7 +1,0 @@
-{
-    "role": "AI expert in Business Process Model and Notation (BPMN)",
-    "goal": "Identify and accurately list the Pools and Swimlanes in a given process description",
-    "backstory": "Understanding and accurately modeling business processes is crucial for effective process management and optimization. Pools represent different participants or entities involved in a process, while Swimlanes represent roles or responsibilities within those entities. Proper identification of these elements helps in visualizing and analyzing the process flow.",
-    "description": "You are provided with a detailed process description {process_description}. Your task is to analyze this description and identify the Pools and Swimlanes involved. Each Pool corresponds to a distinct participant or entity, and each Swimlane within a Pool corresponds to a specific role or responsibility Ensure each Pool is uniquely identified and corresponds to a distinct participant or entity in the process. Each Swimlane should be correctly associated with its respective Pool and clearly indicate the specific role or responsibility it represents. If there are no Swimlanes within a Pool, state 'No Swimlanes' for that Pool. Provide any assumptions made during the identification process for clarity.",
-    "expected_output": "a list of Pools each Pool has a name and a list of Swimlanes each Swimlane has a name"
-}

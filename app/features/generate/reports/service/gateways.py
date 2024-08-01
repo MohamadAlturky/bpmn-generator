@@ -24,8 +24,8 @@ from  ..models.types import ProcessDescription,GatewaysReport
 
 load_dotenv(override=True)
 path = Path(__file__).parent.parent
-task_path = os.path.join(path,"tasks\\gateways\\generate.prompt")
-parser_path = os.path.join(path,"tasks\\gateways\\generate.format.prompt")
+task_path = os.path.join(path,"tasks/gateways/generate.prompt")
+parser_path = os.path.join(path,"tasks/gateways/generate.format.prompt")
 
 TASK_PROMPT = ""
 FORMAT_PROMPT=""
@@ -53,4 +53,4 @@ def generate_gateways_report(process_description : ProcessDescription):
     json_res = parse_json(generated_json)
     if json_res.is_failure:
         return json_res
-    return Result.success(GatewaysReport(json=json_res.value))
+    return Result.success(GatewaysReport(content=json_res.value))

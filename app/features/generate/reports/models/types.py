@@ -14,19 +14,19 @@ class ProcessDescription(BaseModel):
 ########################################
 
 class EventsReport(BaseModel):
-    json: object
+    content: object
 
 
 class PoolsLanesReport(BaseModel):
-    json: object
+    content: object
 
 
 class TasksReport(BaseModel):
-    json: object
+    content: object
 
 
 class GatewaysReport(BaseModel):
-    json: object
+    content: object
 
 #☁️☁️☁️☁️☁️☁️☁️☁️☁️☁️☁️☁️☁️☁️☁️☁️☁️#
 

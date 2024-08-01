@@ -24,7 +24,7 @@ from ..mapping.mapper import Mapper
 #########################################
 
 router = APIRouter(
-    prefix="/template"
+    prefix="/generate"
 )
 #☁️☁️☁️☁️☁️☁️☁️☁️☁️☁️☁️☁️☁️☁️☁️☁️☁️#
 
@@ -34,8 +34,8 @@ router = APIRouter(
 ## responsibility: define the endpoint ##
 #########################################
 
-@router.post("/action")
-def extract_pools(request:Request):
+@router.post("/report")
+def report(request:Request):
     
     #########################################
     ## First Step    🔍🔍🔍🔍            ##
@@ -68,6 +68,7 @@ def extract_pools(request:Request):
     #########################################
 
     service = Service()
+    
     try:
         result = service.serve(inputs)
     except Exception:

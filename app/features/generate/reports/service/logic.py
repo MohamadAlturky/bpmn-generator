@@ -1,5 +1,5 @@
 from core.res.result import Result
-from ..models.types import ProcessDescription,Report
+from ..models.types import ProcessDescription,Report,GatewaysReport,EventsReport,PoolsLanesReport,TasksReport
 from .tasks import generate_tasks_report
 from .pools import generate_pools_lanes_report
 from .events import generate_events_report
@@ -28,8 +28,8 @@ class Service:
         
         
         return Result.success(Report(
-            events_report=events_result.value,
-            gateways_report=gateways_result.value,
-            poolsLanes_report=pools_result.value,
-            tasks_report=tasks_result.value
+            gateways_report=GatewaysReport(content=gateways_result.value),
+            tasks_report=TasksReport(content=tasks_result.value),
+            poolsLanes_report=PoolsLanesReport(content=pools_result.value),
+            events_report=EventsReport(content=events_result.value)
         ))

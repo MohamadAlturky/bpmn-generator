@@ -24,8 +24,8 @@ from  ..models.types import ProcessDescription,PoolsLanesReport
 
 load_dotenv(override=True)
 path = Path(__file__).parent.parent
-task_path = os.path.join(path,"tasks\\pools\\generate.prompt")
-parser_path = os.path.join(path,"tasks\\pools\\generate.format.prompt")
+task_path = os.path.join(path,"tasks/pools/generate.prompt")
+parser_path = os.path.join(path,"tasks/pools/generate.format.prompt")
 
 TASK_PROMPT = ""
 FORMAT_PROMPT=""
@@ -53,4 +53,4 @@ def generate_pools_lanes_report(process_description : ProcessDescription):
     json_res = parse_json(generated_json)
     if json_res.is_failure:
         return json_res
-    return Result.success(PoolsLanesReport(json=json_res.value))
+    return Result.success(PoolsLanesReport(content=json_res.value))
