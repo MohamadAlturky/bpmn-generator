@@ -1,4 +1,4 @@
-from ..models.types import ProcessReport,Connections
+from ..models.types import ProcessReport,Diagram
 from ..contracts.api import Request, Response
 
 class Mapper:
@@ -12,5 +12,5 @@ class Mapper:
                              report=request.report)
 
     # map the output of the service to the type of the API response
-    def map_from_service(self,output : Connections) -> Response:
-        return Response(connections=output.connections)
+    def map_from_service(self,output : Diagram) -> Response:
+        return Response(connections=output.connections,annotations=output.annotations)

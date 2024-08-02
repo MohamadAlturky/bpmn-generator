@@ -34,6 +34,12 @@ class Connections(BaseModel):
     
 class Annotations(BaseModel):
     annotations:object
+    
+class Diagram(BaseModel):
+    connections:object
+    annotations:object
+    
+
 #☁️☁️☁️☁️☁️☁️☁️☁️☁️☁️☁️☁️☁️☁️☁️☁️☁️#
 
 

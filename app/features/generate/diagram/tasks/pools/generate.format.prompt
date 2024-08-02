@@ -3,8 +3,8 @@ as a json expert represent the given data that represents the participant of a b
 **Expected output**:
 a valid json list object of this formate 
 {
-	"components name":"",
-	"participant name":"",
+	"components_name":"",
+	"participant_name":"",
 }
 
 **The annotations**

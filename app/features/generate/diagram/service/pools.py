@@ -43,10 +43,11 @@ def generate_annotations_report(process_report : ProcessReport,connections : Con
     
     
     names = set()
-
-    for item in connections.connections:
-        names.add(item["source name"])
-        names.add(item["destination name"])
+    print("connections")
+    print(connections)
+    for item in connections:
+        names.add(item["source_name"])
+        names.add(item["destination_name"])
 
     bpmn_components = ""
     for name in sorted(names):

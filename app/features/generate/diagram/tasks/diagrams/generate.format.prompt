@@ -3,10 +3,10 @@ as a json expert represent the given connections that represents the sequence fl
 **Expected output**:
 a valid json list object of this formate 
 {
-	"source name":"",
-	"source type":"",
-	"destination name":"",
-	"destination type":"",
+	"source_name":"",
+	"source_type":"",
+	"destination_name":"",
+	"destination_type":"",
 }
 
 **The connections**
