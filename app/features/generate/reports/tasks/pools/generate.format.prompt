@@ -13,6 +13,29 @@ a valid json list object of this formate
 	]
 }
 
+**Example output**:
+
+[
+	{
+		"name":"pool1",
+		"description":"description1"
+	},
+	{
+		"name":"pool2",
+		"description":"description2",
+		"lanes":[
+			{
+				"name":"lane1",
+				"description":"description for lane1",
+			},
+			{
+				"name":"lane2",
+				"description":"description for lane2",
+			}
+		]
+	}
+]
+
 **The pools and lanes**
 {pools_lanes}
 

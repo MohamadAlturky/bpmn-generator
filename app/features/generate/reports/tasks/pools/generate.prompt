@@ -4,6 +4,6 @@ In Business Process Model and Notation (BPMN), **pools** and **lanes** are used 
 
 
 Extract the pools and lanes in this process description:
-```json
+```
 {process_description}
 ```
