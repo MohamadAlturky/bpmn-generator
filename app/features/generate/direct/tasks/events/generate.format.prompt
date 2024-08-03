@@ -1,0 +1,33 @@
+as a json expert represent the given events in a json list.
+
+**Expected output**:
+a valid json list object of this formate 
+{
+	"name":"string",
+    "type":"End Event"|"Intermediate Event"|"Start Event",
+    "description":"string",
+}
+
+**Example output**:
+[
+	{
+		"name":"some event name",
+        "type":"Start Event",
+        "description":"some description",
+	},
+    {
+		"name":"some event name",
+        "type":"End Event",
+        "description":"some description",
+	}
+]
+
+**The events**
+{events}
+
+**Notes**:
+write the json inside a section of this formate
+
+```
+the json object
+```

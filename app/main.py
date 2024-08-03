@@ -2,6 +2,7 @@ from fastapi import FastAPI
 from features.template.action.router.endpoint import router as template_router
 from features.generate.reports.router.endpoint import router as reports_router
 from features.generate.diagram.router.endpoint import router as diagram_router
+from features.generate.direct.router.endpoint import router as direct_router
 from fastapi.middleware.cors import CORSMiddleware
 
 app = FastAPI(swagger_ui_parameters={"syntaxHighlight.theme": "obsidian"})
@@ -20,3 +21,4 @@ app.add_middleware(
 app.include_router(template_router)
 app.include_router(reports_router)
 app.include_router(diagram_router)
+app.include_router(direct_router)

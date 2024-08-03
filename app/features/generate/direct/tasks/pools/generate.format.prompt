@@ -1,0 +1,49 @@
+as a json expert represent the given pools and lanes in a json list.
+
+**Expected output**:
+a valid json list object of this formate 
+{
+    "name":"string",
+    "description":"string",
+    "lanes":[
+		{
+			"name":"string",
+   			"description":"string",
+		}
+	]
+}
+
+**Example output**:
+
+[
+	{
+		"name":"pool1",
+		"description":"description1"
+	},
+	{
+		"name":"pool2",
+		"description":"description2",
+		"lanes":[
+			{
+				"name":"lane1",
+				"description":"description for lane1",
+			},
+			{
+				"name":"lane2",
+				"description":"description for lane2",
+			}
+		]
+	}
+]
+
+**The pools and lanes**
+{pools_lanes}
+
+**Notes**:
+write the json inside a section of this formate
+
+```
+
+the json object
+
+```
