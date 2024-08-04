@@ -9,6 +9,7 @@ a valid json list object of this formate
 }
 
 **Example output**:
+```
 [
 	{
         "name":"some name",
@@ -21,7 +22,7 @@ a valid json list object of this formate
         "description":"some description",
     }
 ]
-
+```
 **The tasks**
 {tasks}
 

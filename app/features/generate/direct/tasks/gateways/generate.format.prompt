@@ -21,6 +21,7 @@ a valid json list object of this formate
 }
 
 **Example output**:
+```
 [
 	{
 		"name":"gateway name",
@@ -37,10 +38,10 @@ a valid json list object of this formate
 				"name":"some task",
 				"description":"some description"
 			}
-		],
+		]
 	}
 ]
-
+```
 
 **The Gateways**
 {gateways}

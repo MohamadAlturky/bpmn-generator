@@ -8,6 +8,7 @@ a valid json list object of this formate
 }
 
 **Example output**:
+```
 [
 	{
 		"components_name":"x",
@@ -18,6 +19,7 @@ a valid json list object of this formate
 		"participant_name":"g",
 	}
 ]
+```
 
 **The annotations**
 {annotations}

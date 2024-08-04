@@ -14,7 +14,7 @@ a valid json list object of this formate
 }
 
 **Example output**:
-
+```
 [
 	{
 		"name":"pool1",
@@ -35,7 +35,7 @@ a valid json list object of this formate
 		]
 	}
 ]
-
+```
 **The pools and lanes**
 {pools_lanes}
 

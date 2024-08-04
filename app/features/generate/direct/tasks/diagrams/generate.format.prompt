@@ -9,6 +9,7 @@ a valid json list object of this formate
 	"destination_type":"",
 }
 **Example output**:
+```
 [
 	{
 		"source_name":"x",
@@ -23,7 +24,7 @@ a valid json list object of this formate
 		"destination_type":"type of c",
 	}
 ]
-
+```
 **The connections**
 {connections}
 

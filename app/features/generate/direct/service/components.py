@@ -60,7 +60,15 @@ def generate_annotations_report(process_report : ProcessReport,connections : Con
     llm = Ollama(model="llama3.1", base_url=os.getenv("OLLAMA_HOST"))
     complete_prompt = PROMPT.replace("{process_description}", process_report.content)
     complete_prompt = complete_prompt.replace("{bpmn_components}", bpmn_components)
-    complete_prompt = complete_prompt.replace("{extracted_pools_and_lanes}", json.dumps(process_report.report.poolsLanes_report.content))
+    
+    participants = ""
+    for pool in process_report.report.poolsLanes_report.content:
+        participants = participants + "\n" + pool["name"]
+        for lane in pool["lanes"]:
+            participants = participants + "\n" + lane["name"]
+            
+        
+    complete_prompt = complete_prompt.replace("{extracted_pools_and_lanes}", participants)
     generated = llm.invoke(complete_prompt)
     
     PROMPT = FORMAT_PROMPT

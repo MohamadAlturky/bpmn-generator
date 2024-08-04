@@ -40,7 +40,7 @@ class Service:
             return gateways_result
         if events_result.is_failure():
             return events_result
-        
+
         report = Report(
             gateways_report=GatewaysReport(content=gateways_result.value),
             tasks_report=TasksReport(content=tasks_result.value),
