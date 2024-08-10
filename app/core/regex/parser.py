@@ -10,9 +10,9 @@ def parse_json(input_string):
     match = re.search(f"{re.escape(start_marker)}(.*?){re.escape(end_marker)}", input_string, re.DOTALL)
     if match:
         json_content = match.group(1)
-        print("-------------------------------------------------------------------------------------------")
-        print(json_content)
-        print("-------------------------------------------------------------------------------------------")
+        # print("-------------------------------------------------------------------------------------------")
+        # print(json_content)
+        # print("-------------------------------------------------------------------------------------------")
         try:
             parsed_json = json.loads(json_content)
             # print(parsed_json)
@@ -31,9 +31,9 @@ def parse_json(input_string):
     match = re.search(f"{re.escape(start_marker)}(.*?){re.escape(end_marker)}", input_string, re.DOTALL)
     if match:
         json_content = match.group(1)
-        print("-------------------------------------------------------------------------------------------")
-        print(json_content)
-        print("-------------------------------------------------------------------------------------------")
+        # print("-------------------------------------------------------------------------------------------")
+        # print(json_content)
+        # print("-------------------------------------------------------------------------------------------")
         try:
             parsed_json = json.loads(json_content)
             # print(parsed_json)
@@ -52,9 +52,9 @@ def parse_json(input_string):
     match = re.search(f"{re.escape(start_marker)}(.*?){re.escape(end_marker)}", input_string, re.DOTALL)
     if match:
         json_content = match.group(1)
-        print("-------------------------------------------------------------------------------------------")
-        print(json_content)
-        print("-------------------------------------------------------------------------------------------")
+        # print("-------------------------------------------------------------------------------------------")
+        # print(json_content)
+        # print("-------------------------------------------------------------------------------------------")
         try:
             parsed_json = json.loads(json_content)
             # print(parsed_json)

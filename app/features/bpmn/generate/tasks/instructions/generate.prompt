@@ -1,0 +1,7 @@
+I want you to create a Business Process Model and Notation (BPMN) model for the process described 
+below. Return the model in the following format: task nodes as words, parallel gateways as AND, exclusive 
+gateways as XOR, and arcs as ->. You should number the gateways. You may also label the outgoing arcs of 
+an exclusive gateway to denote the decision criterion, like XOR Gateway -> (condition 1) Task. Additionally, 
+provide a mapping of actors to activities, in the format actor: [activity1, ...]
+provide a mapping of each element with its type ["start event","end event","intermediate event","user task","manual task","system task","xor gateway","and gateway","or gateway"] , in the format elemnt: [type]
+provide expressive names for the gateways and suffix it with the gateway type

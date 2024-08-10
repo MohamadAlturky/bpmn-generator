@@ -1,0 +1,52 @@
+Please convert the following BPMN specification into a JSON representation.
+The BPMN specification includes a sequence of steps and an actor-activity mapping.
+The JSON format should include a "process" array with each step represented as an object containing "id", "from", "to", and optionally "condition" fields.
+Additionally, include an "actorActivityMapping" object that maps each actor to their respective activities.
+
+
+**BPMN Specification**:
+
+{BPMN_Specification}
+
+
+**Expected JSON Format**:
+
+```json
+{
+  "process": [
+    {
+      "from": "some name",
+      "to": "some name"
+    },
+    {
+      "from": "xor gateway decision point 2",
+      "condition": "good description of Condition to move from source to target",
+      "to": "some activity name"
+    },
+    {
+      "from": "some gateway",
+      "condition": "Condition 2",
+      "to": "Activity 5"
+    }
+  ],
+  "actorActivityMapping": {
+    "Actor1": [
+      "Activity 1",
+      "Activity 2",
+    ],
+    "Actor2": [
+      "Activity 8",
+      "Activity 9"
+    ]
+  },
+  "elementTypeMapping":{
+    "some activity 3":"user task",
+    "some activity 2":"manual task",
+    "some activity 1":"system task",
+    "some gateway":"xor gateway",
+    "Start":"start event"
+  }
+}
+```
+
+Please ensure the JSON structure accurately reflects the BPMN specification provided.

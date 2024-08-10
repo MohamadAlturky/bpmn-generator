@@ -1,0 +1,14 @@
+You are given a process description. Your task is to carefully analyze the text and generate questions that highlight any unclear or ambiguous aspects. These questions should aim to enhance the clarity, completeness, and effectiveness of the process description. Consider the following aspects while formulating your questions:
+Clarity: Are there any terms, steps, or instructions that are vague or confusing?
+Completeness: Is there any missing information that is essential for understanding or executing the process?
+Logic and Flow: Are the steps presented in a logical order, and do they flow smoothly from one to the next?
+Assumptions: Are there any assumptions made that should be explicitly stated?
+Consistency: Are there any inconsistencies or contradictions within the description?
+Process Description:
+
+{process_description}
+Instructions:
+Review the process description thoroughly.
+Identify any areas that might benefit from additional clarification or detail.
+Formulate specific, constructive questions that can guide the improvement of the process description.
+By generating these questions, the goal is to ensure that the process is as clear, complete, and user-friendly as possible.

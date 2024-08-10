@@ -111,7 +111,8 @@ def report(request:Request):
         {"role": "user", "content": "Can you refine or expand on the BPMN JSON based on our previous conversation?"},
         {"role": "assistant", "content": first_agent_message_2},
         {"role": "user", "content": second_agent_message_2 + """,
-        Now you can convert the BPMN representation into a JSON format. The JSON should have the following example structure:
+        Now you can convert the BPMN representation into a JSON format.
+        The JSON should have the following example structure:
             ```json
             {
             "elements": [

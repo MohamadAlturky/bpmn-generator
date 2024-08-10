@@ -42,7 +42,8 @@ def convert_bpmn_to_nodes_and_edges(bpmn_json):
                 edge = {
                     'id':element['sourceRef'] +"_"+ element['targetRef'],
                     'source': element['sourceRef'],
-                    'target': element['targetRef']
+                    'target': element['targetRef'],
+                    'animated':True
                 }
                 edges.append(edge)
 
