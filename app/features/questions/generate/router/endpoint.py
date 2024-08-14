@@ -9,6 +9,7 @@ from fastapi import APIRouter
 from fastapi import HTTPException
 
 ##🔗 from application core
+from core.settings.loader import get_settings
 from core.paths.get_parent import get_parent_folders
 from core.res.result import Result
 
@@ -32,7 +33,6 @@ print("Parent folders:", parent_folders)
 
 
 
-
 #########################################
 ## this will be changed for each slice ##
 #########################################
@@ -51,7 +51,6 @@ router = APIRouter(
 #########################################
 
 @router.post(f"/{parent_folders[1]}")
-
 def report(request:Request):
     
     #########################################
@@ -84,13 +83,24 @@ def report(request:Request):
     ## responsibility : run the service    ##
     #########################################
 
+    ## SERVICE AND RESULT INIT
     service = Service()
-    result = service.serve(inputs)
+    result = None
     
-    # try:
-    #     result = service.serve(inputs)
-    # except Exception:
-    #     raise HTTPException(status_code=HTTPStatus.INTERNAL_SERVER_ERROR,detail="error happend sorry")
+    ## GETTING THE SETTINGS
+    settings = get_settings()
+
+    ## TWO PATHS ACCORDING TO THE environment
+    if settings.environment == "DEVELOPMENT":
+        ### THIS WILL GIVE US THE EXCEPTION
+        print("INFO :: DEVELOPMENT ACTION")
+        result = service.serve(inputs)
+    else:
+        ### THIS WILL CATCH THE EXCEPTION AND RETURN INTERNAL_SERVER_ERROR
+        try:
+            result = service.serve(inputs)
+        except Exception:
+            raise HTTPException(status_code=HTTPStatus.INTERNAL_SERVER_ERROR,detail="error happend sorry")
     #☁️☁️☁️☁️☁️☁️☁️☁️☁️☁️☁️☁️☁️☁️☁️☁️☁️#
     
     #########################################
