@@ -1,34 +1,18 @@
-Please convert the following BPMN specification into a JSON representation.
-The BPMN specification includes a sequence of steps and an actor-activity mapping.
-The JSON format should include a "process" array with each step represented as an object containing "id", "source", "target", and optionally "condition" fields.
-Additionally, include an "actorActivityMapping" object that maps each actor to their respective activities.
+given the following process description flows:
 
+**Process Description**:
+{process_description}
 
-**BPMN Specification**:
+given the following BPMN flows:
+**BPMN flow**:
+{BPMN_flows}
 
-{BPMN_Specification}
-
+provide the "actorActivityMapping" object that maps each actor to their respective activities and the "elementTypeMapping" that maps each element to a type.
 
 **Expected JSON Format**:
 
 ```json
 {
-  "process": [
-    {
-      "source": "some name",
-      "target": "some name"
-    },
-    {
-      "source": "xor gateway decision point 2",
-      "condition": "good description of Condition to move from source to target",
-      "target": "some activity name"
-    },
-    {
-      "source": "some gateway",
-      "condition": "Condition 2",
-      "target": "Activity 5"
-    }
-  ],
   "actorActivityMapping": {
     "Actor1": [
       "Activity 1",
@@ -50,16 +34,18 @@ Additionally, include an "actorActivityMapping" object that maps each actor to t
 ```
 
 
-the types are:
-- user task
-- service task
-- manual task
-- and gateway
-- xor gateway
-- or gateway
-- start event
-- intermediate event
-- end event
-- pool
+in the elementTypeMapping the types are:
+- "user task"
+- "service task"
+- "manual task"
+- "and gateway"
+- "xor gateway"
+- "or gateway"
+- "start event"
+- "intermediate event"
+- "end event"
+- "pool"
+
+don't specify any type other than the provided list.
 
 Please ensure the JSON structure accurately reflects the BPMN specification provided.

@@ -150,7 +150,7 @@ workflow_tree_with_gateway = build_tree_with_gateway(parsed_workflows)
 # pprint.pprint(workflow_tree_with_gateway)
 
 connections = []
-def print_tree_with_parents(tree, parent=None):
+def traverse_tree_with_parents(tree, parent=None):
     for key, value in tree.items():
         # Print the current element with its parent
         # print(f"Element: {key}, Parent: {parent}")
@@ -158,9 +158,9 @@ def print_tree_with_parents(tree, parent=None):
             connections.append({"source":parent,"target":key})
         # If the current element has children, recursively call the function
         if isinstance(value, dict):
-            print_tree_with_parents(value, parent=key)
+            traverse_tree_with_parents(value, parent=key)
             
-print_tree_with_parents(workflow_tree_with_gateway)
+traverse_tree_with_parents(workflow_tree_with_gateway)
 print()
 print()
 print()

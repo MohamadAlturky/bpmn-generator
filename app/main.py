@@ -5,6 +5,7 @@ from features.rephrasing.generate.router.endpoint import router as rephrasing_re
 from features.questions.generate.router.endpoint import router as questions_router
 from features.bpmn.generate.router.endpoint import router as bpmn_router
 from features.bpmn.generateV2.router.endpoint import router as bpmn_router_v2
+from features.bpmn.generateV3.router.endpoint import router as bpmn_router_v3
 from fastapi.middleware.cors import CORSMiddleware
 
 app = FastAPI(swagger_ui_parameters={"syntaxHighlight.theme": "obsidian"})
@@ -27,3 +28,4 @@ app.include_router(rephrasing_report_router)
 app.include_router(questions_router)
 app.include_router(bpmn_router)
 app.include_router(bpmn_router_v2)
+app.include_router(bpmn_router_v3)

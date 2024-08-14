@@ -1,3 +1,4 @@
+import json
 import uuid
 import os
 from pathlib import Path
@@ -58,6 +59,55 @@ def type_representer(type):
         return "UserTask"
     return type
 
+def parse_workflow(input_str):
+    # Split the input by newlines to process each workflow separately
+    lines = input_str.strip().split('\n')
+    
+    # Initialize an empty list to store the parsed workflows
+    workflows = []
+    
+    # Process each line
+    for line in lines:
+        # Split each line by '->' and remove extra spaces
+        steps = [step.strip() for step in line.split('->')]
+        workflows.append(steps)
+    
+    return workflows
+
+
+
+
+
+def build_tree_with_gateway(parsed_workflows):
+    id = 1
+    # Initialize the root of the tree
+    tree = {}
+    
+    # Iterate through each workflow
+    for workflow in parsed_workflows:
+        current_node = tree
+        
+        # Traverse the workflow steps
+        for step in workflow:
+            if step not in current_node:
+                current_node[step] = {}
+            current_node = current_node[step]
+            
+            # Check if the current node has more than one child
+            if len(current_node) > 1:
+                # Move the existing children to a "gateway" node
+                gateway_node = {f'gateway {id}': current_node.copy()}
+                # Clear the current node and replace it with the "gateway" node
+                current_node.clear()
+                current_node.update(gateway_node)
+                # Move to the "gateway" node for the next step
+                current_node = current_node[f'gateway {id}']
+                id = id + 1
+    
+    return tree
+
+
+
 
 # the service class for this slice
 class Service:
@@ -71,11 +121,6 @@ class Service:
             PROMPT = PROMPT + "\n**Process Description**:\n {process_description}"        
             PROMPT = PROMPT.replace("{process_description}",request.process_description)
         
-        
-        if request.report != "":
-            PROMPT = PROMPT + "\n**Report**:\n {report}"        
-            PROMPT = PROMPT.replace("{report}",request.report)
-        
         if request.notes != "":
             PROMPT = PROMPT + "\n**Notes**:\n {notes}"        
             PROMPT = PROMPT.replace("{notes}",request.notes)
@@ -86,23 +131,52 @@ class Service:
         
         llm_response = sender.send_prompt_history(llm_history)
         
-        PROMPT = FORMAT_PROMPT.replace("{BPMN_Specification}",llm_response)
         
+        
+        input_str = extract_enclosed_string(llm_response)
+        print(input_str)
+        if input_str == None:
+            raise TypeError("")
+        parsed_workflows = parse_workflow(input_str)
+        
+        workflow_tree_with_gateway = build_tree_with_gateway(parsed_workflows)
+        
+        
+        connections = []
+        def traverse_tree_with_parents(tree, parent=None):
+            for key, value in tree.items():
+                # Print the current element with its parent
+                # print(f"Element: {key}, Parent: {parent}")
+                if parent != None:
+                    connections.append({"source":parent,"target":key})
+                # If the current element has children, recursively call the function
+                if isinstance(value, dict):
+                    traverse_tree_with_parents(value, parent=key)
+                    
+        traverse_tree_with_parents(workflow_tree_with_gateway)
+        
+        
+        PROMPT = PROMPT.replace("{process_description}",request.process_description)
+        PROMPT = PROMPT.replace("{BPMN_flows}", json.dumps(connections))
+
+
         llm_history = MessageHistory(messages=[
             Message(role="user",content=PROMPT)
         ])  
-        
-        llm_response = sender.send_prompt_history(llm_history)
-        
-       
-        formating_result = parse_json(llm_response)
 
+        first_agent_message = sender.send_prompt_history(llm_history)
+        
+        
+        
+        formating_result = parse_json(first_agent_message)
+
+        
         if(formating_result.is_failure()):
             return Result.failure(formating_result.error)
         
         data = formating_result.value
 
-        
+                
                 
         nodes = {}
         edges = []
@@ -114,13 +188,13 @@ class Service:
                 if activity not in nodes:
                     nodes[activity] = {'id':uuid.uuid4(),'name': activity, 'parentId': nodes[actor]['id'],'type':None}
 
-        for process in data['process']:
+        for process in connections:
             if process['source'] not in nodes:
                 nodes[process['source']] = {'id':uuid.uuid4(),'name': process['source'], 'parentId': None,'type':None}
             if process['target'] not in nodes:
                 nodes[process['target']] = {'id':uuid.uuid4(),'name': process['target'], 'parentId': None,'type':None}
 
-       
+
             edge = {
                 'id':uuid.uuid4(),
                 'source': nodes[process['source']]['id'],
@@ -133,11 +207,10 @@ class Service:
         for element, type in data['elementTypeMapping'].items():
             if element in nodes:
                     nodes[element] = {'id':nodes[element]["id"],'name': element, 'parentId': nodes[element]["parentId"],'type':type_representer(type)}
-        
+
 
         nodes_list = [{'id': value['id'],'name': key, 'parentId': value['parentId'],'type': value['type']} for key, value in nodes.items()]
 
-        
         
         return Result.success(GeneratedResult(nodes=nodes_list,
                                               edges=edges))
