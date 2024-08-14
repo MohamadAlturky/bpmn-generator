@@ -4,10 +4,12 @@
 
 ##🔗 from python
 from http import HTTPStatus
+import os
 from fastapi import APIRouter
 from fastapi import HTTPException
 
 ##🔗 from application core
+from core.paths.get_parent import get_parent_folders
 from core.res.result import Result
 
 ##🔗 from the same slice
@@ -18,13 +20,27 @@ from ..mapping.mapper import Mapper
 #☁️☁️☁️☁️☁️☁️☁️☁️☁️☁️☁️☁️☁️☁️☁️☁️☁️#
 
 #########################################
+## responsibility : build the route    ##
+#########################################
+current_file_path = os.path.abspath(__file__)
+# print(current_file_path)
+parent_folders = get_parent_folders(current_file_path)
+
+print("Parent folders:", parent_folders)
+
+#☁️☁️☁️☁️☁️☁️☁️☁️☁️☁️☁️☁️☁️☁️☁️☁️☁️#
+
+
+
+
+#########################################
 ## this will be changed for each slice ##
 #########################################
 ## responsibility : create the router  ##
 #########################################
 
 router = APIRouter(
-    prefix="/generate"
+    prefix=f"/{parent_folders[2]}"
 )
 #☁️☁️☁️☁️☁️☁️☁️☁️☁️☁️☁️☁️☁️☁️☁️☁️☁️#
 
@@ -34,7 +50,8 @@ router = APIRouter(
 ## responsibility: define the endpoint ##
 #########################################
 
-@router.post("/questions")
+@router.post(f"/{parent_folders[1]}")
+
 def report(request:Request):
     
     #########################################

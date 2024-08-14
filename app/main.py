@@ -37,6 +37,6 @@ app.add_middleware(
 app.include_router(collaboration_router)
 app.include_router(collaboration_report_router)
 app.include_router(rephrasing_report_router)
-app.include_router(rephrasing_report_router)
+# app.include_router(rephrasing_report_router)
 app.include_router(questions_router)
 app.include_router(bpmn_router)
