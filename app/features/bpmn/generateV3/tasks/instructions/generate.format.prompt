@@ -48,4 +48,4 @@ in the elementTypeMapping the types are:
 
 don't specify any type other than the provided list.
 
-Please ensure the JSON structure accurately reflects the BPMN specification provided.
+Please ensure the JSON structure returned in the specified structure.

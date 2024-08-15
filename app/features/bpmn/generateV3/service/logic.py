@@ -107,6 +107,17 @@ def build_tree_with_gateway(parsed_workflows):
     return tree
 
 
+def build_tree(traces):
+    tree = {}
+
+    for trace in traces:
+        current_level = tree
+        for action in trace:
+            if action not in current_level:
+                current_level[action] = {}
+            current_level = current_level[action]
+    
+    return tree
 
 
 # the service class for this slice
@@ -131,15 +142,31 @@ class Service:
         
         llm_response = sender.send_prompt_history(llm_history)
         
-        
+        print("llm_responsellm_responsellm_responsellm_responsellm_responsellm_response")
+        print(llm_response)
         
         input_str = extract_enclosed_string(llm_response)
+        print("input_strinput_strinput_strinput_strinput_strinput_strinput_strinput_strinput_str")
         print(input_str)
         if input_str == None:
             raise TypeError("")
         parsed_workflows = parse_workflow(input_str)
         
-        workflow_tree_with_gateway = build_tree_with_gateway(parsed_workflows)
+        print()
+        print()
+        print()
+        print()
+        print()
+        for i in parsed_workflows:
+            print(i)
+        print()
+        print()
+        print()
+        workflow_tree_with_gateway = build_tree(parsed_workflows)
+        
+        
+        print("workflow_tree_with_gatewayworkflow_tree_with_gatewayworkflow_tree_with_gatewayworkflow_tree_with_gateway")
+        print(workflow_tree_with_gateway)
         
         
         connections = []
@@ -156,7 +183,10 @@ class Service:
         traverse_tree_with_parents(workflow_tree_with_gateway)
         
         
-        PROMPT = PROMPT.replace("{process_description}",request.process_description)
+        print("connectionsconnectionsconnectionsconnectionsconnectionsconnections")
+        print(connections)
+        
+        PROMPT = FORMAT_PROMPT.replace("{process_description}",request.process_description)
         PROMPT = PROMPT.replace("{BPMN_flows}", json.dumps(connections))
 
 
@@ -166,7 +196,8 @@ class Service:
 
         first_agent_message = sender.send_prompt_history(llm_history)
         
-        
+        print("first_agent_messagefirst_agent_messagefirst_agent_messagefirst_agent_message")
+        print(first_agent_message)
         
         formating_result = parse_json(first_agent_message)
 
@@ -182,11 +213,13 @@ class Service:
         edges = []
 
         for actor, activities in data['actorActivityMapping'].items():
-            nodes[actor] = {'id':uuid.uuid4(),'name': actor, 'parentId': None,'type':"pool"}
+            nodes[actor] = {'id':uuid.uuid4(),'name': actor,'type':"pool"}
+            # nodes[actor] = {'id':uuid.uuid4(),'name': actor, 'parentId': None,'type':"pool"}
             
             for activity in activities:
                 if activity not in nodes:
-                    nodes[activity] = {'id':uuid.uuid4(),'name': activity, 'parentId': nodes[actor]['id'],'type':None}
+                    nodes[activity] = {'id':uuid.uuid4(),'name': activity,'type':None}
+                    # nodes[activity] = {'id':uuid.uuid4(),'name': activity, 'parentId': nodes[actor]['id'],'type':None}
 
         for process in connections:
             if process['source'] not in nodes:
@@ -200,17 +233,20 @@ class Service:
                 'source': nodes[process['source']]['id'],
                 'target': nodes[process['target']]['id']
             }
-            if 'condition' in process:
-                edge['condition'] = process['condition']
+            # if 'condition' in process:
+            #     edge['condition'] = process['condition']
             edges.append(edge)
 
         for element, type in data['elementTypeMapping'].items():
             if element in nodes:
-                    nodes[element] = {'id':nodes[element]["id"],'name': element, 'parentId': nodes[element]["parentId"],'type':type_representer(type)}
+                nodes[element] = {'id':nodes[element]["id"],'name': element,'type':type_representer(type)}
+                # nodes[element] = {'id':nodes[element]["id"],'name': element, 'parentId': nodes[element]["parentId"],'type':type_representer(type)}
 
 
-        nodes_list = [{'id': value['id'],'name': key, 'parentId': value['parentId'],'type': value['type']} for key, value in nodes.items()]
+        nodes_list = [{'id': value['id'],'name': key,'type': value['type']} for key, value in nodes.items()]
+        # nodes_list = [{'id': value['id'],'name': key, 'parentId': value['parentId'],'type': value['type']} for key, value in nodes.items()]
 
-        
+        # print(nodes_list)
+        # print(edges)
         return Result.success(GeneratedResult(nodes=nodes_list,
                                               edges=edges))
