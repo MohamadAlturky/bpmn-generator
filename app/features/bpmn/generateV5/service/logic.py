@@ -14,6 +14,12 @@ from core.regex.parser import parse_json
 from  ..models.types import QuestionDetails,GeneratedResult
 from .utilities import parse_flows,build_connections,build_activity_dictionary
 
+def find_edge(edges, source_value, target_value, condition):
+    for edge in edges:
+        if edge["source"] == source_value and edge["target"] == target_value:
+            edge['condition'] = condition
+            return edge
+    return None
 
 
 @retry_on_exception(max_retries=2, delay=2)
@@ -194,6 +200,8 @@ class Service:
             raise TypeError("No flow provided")
         
         print(formating_result.value)
+    
+        gateways_data = formating_result.value
         
         # 
         
@@ -234,12 +242,31 @@ class Service:
         for element, type in data['elementTypeMapping'].items():
             if element in nodes:
                 nodes[element] = {'id':nodes[element]["id"],'name': element,'type':type_representer(type)}
+        for element, type in gateways_data['gatewayTypeMapping'].items():
+            if element in nodes:
+                nodes[element] = {'id':nodes[element]["id"],'name': element,'type':type_representer(type)}
                 # nodes[element] = {'id':nodes[element]["id"],'name': element, 'parentId': nodes[element]["parentId"],'type':type_representer(type)}
 
 
         nodes_list = [{'id': value['id'],'name': key,'type': value['type']} for key, value in nodes.items()]
         # nodes_list = [{'id': value['id'],'name': key, 'parentId': value['parentId'],'type': value['type']} for key, value in nodes.items()]
 
+
+
+        print()
+        print()
+        print()
+        print()
+        # Loop over the dictionary
+        for gateway, activities in gateways_data["gatewayConditions"].items():
+            print(f"Gateway: {gateway}")
+            print(f"Gateway Node: {nodes[gateway]}")
+
+            for activity, condition in activities.items():
+                print(f"  Activity: {activity}")
+                print(f"  Activity Node: {nodes[activity]}")
+                find_edge(edges=edges,source_value=nodes[gateway]["id"],target_value=nodes[activity]["id"],condition=condition)
+                print(f"    condition: {condition}")
         # print(nodes_list)
         # print(edges)
         return Result.success(GeneratedResult(nodes=nodes_list,

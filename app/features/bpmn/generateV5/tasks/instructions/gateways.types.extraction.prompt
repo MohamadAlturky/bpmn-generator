@@ -19,12 +19,12 @@ Generate a JSON object that includes:
   },
   "gatewayConditions": {
     "gateway 1": {
-      "Activity3": "Condition1",
-      "Activity4": "Condition2"
+      "some activity name": "Condition1",
+      "some activity name": "Condition2"
     },
     "gateway 2": {
-      "Activity5": "Condition3",
-      "Activity6": "Condition4"
+      "some activity name": "Condition3",
+      "some activity name": "Condition4"
     }
   }
 }
