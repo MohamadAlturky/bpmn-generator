@@ -1,7 +1,6 @@
 Given the following information:
 
 - **Process Description**: {process_description}
-- **BPMN Diagram**: {BPMN_flows}
 - **Gateways**: {gateways}
 
 Generate a JSON object that includes:
@@ -15,15 +14,15 @@ Generate a JSON object that includes:
 ```json
 {
   "gatewayTypeMapping": {
-    "Gateway1": "xor gateway",
-    "Gateway2": "and gateway"
+    "gateway 1": "xor gateway",
+    "gateway 2": "and gateway"
   },
   "gatewayConditions": {
-    "Gateway1": {
+    "gateway 1": {
       "Activity3": "Condition1",
       "Activity4": "Condition2"
     },
-    "Gateway2": {
+    "gateway 2": {
       "Activity5": "Condition3",
       "Activity6": "Condition4"
     }

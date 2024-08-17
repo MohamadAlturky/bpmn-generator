@@ -174,7 +174,6 @@ class Service:
         
         # gateways section
         PROMPT = GATEWAYS_PROMPT.replace("{process_description}",request.process_description)
-        PROMPT = PROMPT.replace("{BPMN_flows}", json.dumps(connections))
         PROMPT = PROMPT.replace("{gateways}", json.dumps(gateways_list))        
         
         print("PROMPT PROMPT PROMPT PROMPT PROMPT PROMPT PROMPT")
