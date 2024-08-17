@@ -53,15 +53,20 @@ load_dotenv(override=True)
 path = Path(__file__).parent.parent
 task_path = os.path.join(path,"tasks/instructions/generate.prompt")
 parser_path = os.path.join(path,"tasks/instructions/types.extraction.prompt")
+gateway_parser_path = os.path.join(path,"tasks/instructions/gateways.types.extraction.prompt")
 
 TASK_PROMPT = ""
 FORMAT_PROMPT=""
+GATEWAYS_PROMPT=""
 
 with open(task_path, 'r') as file:
     TASK_PROMPT = file.read()
 
 with open(parser_path, 'r') as file:
     FORMAT_PROMPT = file.read()
+    
+with open(gateway_parser_path, 'r') as file:
+    GATEWAYS_PROMPT = file.read()
 #☁️☁️☁️☁️☁️☁️☁️☁️☁️☁️☁️☁️☁️☁️☁️☁️☁️#
 
 
@@ -156,8 +161,49 @@ class Service:
 
 
         data = get_elements_types(sender,llm_history)
+        
+        
+        
+        
         print("data")
         print(data)
+        
+        
+        
+        
+        
+        # gateways section
+        PROMPT = GATEWAYS_PROMPT.replace("{process_description}",request.process_description)
+        PROMPT = PROMPT.replace("{BPMN_flows}", json.dumps(connections))
+        PROMPT = PROMPT.replace("{gateways}", json.dumps(gateways_list))        
+        
+        print("PROMPT PROMPT PROMPT PROMPT PROMPT PROMPT PROMPT")
+        print(PROMPT)
+        llm_history = MessageHistory(messages=[
+            Message(role="user",content=PROMPT)
+        ])  
+        
+        first_agent_message = sender.send_prompt_history(llm_history)
+    
+        print("gatewaysgateways gateways gateways gateways gateways")
+        print(first_agent_message)
+        
+        formating_result = parse_json(first_agent_message)
+
+        
+        if(formating_result.is_failure()):
+            raise TypeError("No flow provided")
+        
+        print(formating_result.value)
+        
+        # 
+        
+        
+        
+        
+        
+        
+        
         nodes = {}
         edges = []
 
