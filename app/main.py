@@ -7,6 +7,7 @@ from features.bpmn.generate.router.endpoint import router as bpmn_router
 from features.bpmn.generateV2.router.endpoint import router as bpmn_router_v2
 from features.bpmn.generateV3.router.endpoint import router as bpmn_router_v3
 from features.bpmn.generateV4.router.endpoint import router as bpmn_router_v4
+from features.bpmn.generateV5.router.endpoint import router as bpmn_router_v5
 from fastapi.middleware.cors import CORSMiddleware
 
 app = FastAPI(swagger_ui_parameters={"syntaxHighlight.theme": "obsidian"})
@@ -31,3 +32,4 @@ app.include_router(bpmn_router)
 app.include_router(bpmn_router_v2)
 app.include_router(bpmn_router_v3)
 app.include_router(bpmn_router_v4)
+app.include_router(bpmn_router_v5)

@@ -1,7 +1,7 @@
 import time
 from functools import wraps
 
-def retry_on_exception(max_retries=3, delay=1):
+def retry_on_exception(max_retries=2, delay=1):
     def decorator(func):
         @wraps(func)
         def wrapper(*args, **kwargs):

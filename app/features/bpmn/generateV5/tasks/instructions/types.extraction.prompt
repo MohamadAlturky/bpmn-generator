@@ -1,0 +1,32 @@
+Given the following:
+
+- **Process Description**: {process_description}
+- **BPMN Flow**: {BPMN_flows}
+- **Activities**: {activities}
+
+Generate a JSON object with:
+1. `"actorActivityMapping"`: Maps each actor to their activities.
+2. `"elementTypeMapping"`: Maps each activity to one of the specified types.
+
+**Allowed Types**:
+- "user task", "service task", "manual task"
+- "start event", "intermediate event", "end event"
+
+**Expected JSON Format**:
+```json
+{
+  "actorActivityMapping": {
+    "Actor1": ["Activity 1", "Activity 2"],
+    "Actor2": ["Activity 8", "Activity 9"]
+  },
+  "elementTypeMapping": {
+    "some activity 3": "user task",
+    "some activity 2": "manual task",
+    "some activity 1": "system task",
+    "some gateway": "xor gateway",
+    "Start": "start event"
+  }
+}
+```
+
+Ensure the JSON follows this structure.

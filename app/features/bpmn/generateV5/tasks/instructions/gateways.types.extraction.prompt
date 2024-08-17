@@ -1,0 +1,34 @@
+Given the following:
+
+- **Process Description**: {process_description}
+- **BPMN Flow**: {BPMN_flows}
+- **Gateways**: {gateways}
+
+Generate a JSON object with:
+1. `"gatewayTypeMapping"`: Maps each gateway to one of the specified types.
+
+**Allowed Types**:
+- "and gateway", "xor gateway", "or gateway"
+
+**Expected JSON Format**:
+```json
+{
+  "gatewayTypeMapping": {
+    "gateway 1": "and gateway",
+    "gateway 2": "or gateway",
+    "gateway 3": "xor gateway",
+  },
+  "conditions":[
+    "gateway 1":{
+      "activity 1" : {
+        "condition":"some condition"
+      },
+      "activity 2" : {
+        "condition":"some condition"
+      }
+    }
+  ]
+}
+```
+
+Ensure the JSON follows this structure.
