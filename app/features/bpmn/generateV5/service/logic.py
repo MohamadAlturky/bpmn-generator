@@ -21,6 +21,26 @@ def find_edge(edges, source_value, target_value, condition):
             return edge
     return None
 
+def find_disconnected_nodes(edges):
+    all_nodes = set()
+    for edge in edges:
+        all_nodes.add(edge["source"])
+        all_nodes.add(edge["target"])
+
+    nodes_with_incoming = set()
+    nodes_with_outgoing = set()
+
+    for edge in edges:
+        nodes_with_outgoing.add(edge["source"])
+        nodes_with_incoming.add(edge["target"])
+
+    no_incoming = all_nodes - nodes_with_incoming
+
+    no_outgoing = all_nodes - nodes_with_outgoing
+
+    return list(no_incoming), list(no_outgoing)
+
+
 
 @retry_on_exception(max_retries=2, delay=2)
 def get_elements_types(sender,llm_history):
@@ -41,7 +61,7 @@ def get_elements_types(sender,llm_history):
 @retry_on_exception(max_retries=2, delay=2)
 def get_flow(sender, llm_history):
     llm_response = sender.send_prompt_history(llm_history)
-    print("the llm respondes with ")
+    print("the llm respond with ")
     print(llm_response)
     input_str = extract_enclosed_string(llm_response)
     print("input_str")
@@ -50,6 +70,22 @@ def get_flow(sender, llm_history):
         raise TypeError("No flow provided")
     return input_str
     
+
+@retry_on_exception(max_retries=2, delay=2)
+def get_gateways(sender, llm_history):
+    llm_response = sender.send_prompt_history(llm_history)
+
+    print("the llm respond with ")
+    print(llm_response)
+    
+    formating_result = parse_json(llm_response)
+    
+    if(formating_result.is_failure()):
+        raise TypeError("No gateways provided")
+    
+    print(formating_result.value)
+    gateways_data = formating_result.value
+    return gateways_data
 
 #########################################
 ## read the prompts files  🤖🤖🤖🤖  ##
@@ -97,13 +133,6 @@ class Service:
             Message(role="user",content=PROMPT)
         ])  
         
-        # @retry_on_exception(max_retries=5, delay=2)
-        # def get_flow():
-        #     llm_response = sender.send_prompt_history(llm_history)
-        #     input_str = extract_enclosed_string(llm_response)
-        #     if input_str == None:
-        #         raise TypeError("No flow provided")
-        
         input_str = get_flow(sender, llm_history)
         
         
@@ -122,6 +151,8 @@ class Service:
         print()
         print()
         print()
+        # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
+        
         one_to_one_tree = build_activity_dictionary(parsed_workflows)
         new_tree = {}
         activities_set = set()
@@ -184,28 +215,12 @@ class Service:
         
         print("PROMPT PROMPT PROMPT PROMPT PROMPT PROMPT PROMPT")
         print(PROMPT)
+        
         llm_history = MessageHistory(messages=[
             Message(role="user",content=PROMPT)
         ])  
         
-        first_agent_message = sender.send_prompt_history(llm_history)
-    
-        print("gatewaysgateways gateways gateways gateways gateways")
-        print(first_agent_message)
-        
-        formating_result = parse_json(first_agent_message)
-
-        
-        if(formating_result.is_failure()):
-            raise TypeError("No flow provided")
-        
-        print(formating_result.value)
-    
-        gateways_data = formating_result.value
-        
-        # 
-        
-        
+        gateways_data = get_gateways(sender, llm_history)
         
         
         
@@ -269,5 +284,21 @@ class Service:
                 print(f"    condition: {condition}")
         # print(nodes_list)
         # print(edges)
+        
+        no_incoming,no_outgoing = find_disconnected_nodes(edges)
+        
+        for i in no_incoming:
+            for j in nodes_list:
+                if j["id"] == i:
+                    print(j)
+                    j["type"] = "Start_Event"
+        
+        for i in no_outgoing:
+            for j in nodes_list:
+                if j["id"] == i:
+                    print(j)
+                    j["type"] = "End_Event"
+        
+        
         return Result.success(GeneratedResult(nodes=nodes_list,
                                               edges=edges))
