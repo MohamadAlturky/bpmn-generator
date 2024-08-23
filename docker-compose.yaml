@@ -1,0 +1,15 @@
+version: '3.8'
+
+services:
+  web:
+    build:
+      context: . 
+    ports:
+      - "8055:8055"  
+    environment:
+      - PYTHONDONTWRITEBYTECODE=1
+      - PYTHONUNBUFFERED=1
+    volumes:
+      - .:/app 
+    command: ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8055"]
+

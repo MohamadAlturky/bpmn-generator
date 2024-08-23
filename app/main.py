@@ -3,10 +3,6 @@ from features.collaboration.generate_with_two.router.endpoint import router as c
 from features.collaboration.generate_report_with_two.router.endpoint import router as collaboration_report_router
 from features.rephrasing.generate.router.endpoint import router as rephrasing_report_router
 from features.questions.generate.router.endpoint import router as questions_router
-from features.bpmn.generate.router.endpoint import router as bpmn_router
-from features.bpmn.generateV2.router.endpoint import router as bpmn_router_v2
-from features.bpmn.generateV3.router.endpoint import router as bpmn_router_v3
-from features.bpmn.generateV4.router.endpoint import router as bpmn_router_v4
 from features.bpmn.generateV5.router.endpoint import router as bpmn_router_v5
 from fastapi.middleware.cors import CORSMiddleware
 
@@ -15,6 +11,7 @@ app = FastAPI(swagger_ui_parameters={"syntaxHighlight.theme": "obsidian"})
 origins = [
     "http://localhost:3000",
     "http://172.29.3.110:3000",
+    "http://localhost:8062",
     "http://bpmn.hiast.edu.sy",
 ]
 app.add_middleware(
@@ -28,8 +25,4 @@ app.include_router(collaboration_router)
 app.include_router(collaboration_report_router)
 app.include_router(rephrasing_report_router)
 app.include_router(questions_router)
-app.include_router(bpmn_router)
-app.include_router(bpmn_router_v2)
-app.include_router(bpmn_router_v3)
-app.include_router(bpmn_router_v4)
 app.include_router(bpmn_router_v5)

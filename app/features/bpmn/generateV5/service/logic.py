@@ -248,7 +248,9 @@ class Service:
             edge = {
                 'id':uuid.uuid4(),
                 'source': nodes[process['source']]['id'],
-                'target': nodes[process['target']]['id']
+                'source_name': nodes[process['source']]['name'],
+                'target': nodes[process['target']]['id'],
+                'target_name': nodes[process['target']]['name'],
             }
             # if 'condition' in process:
             #     edge['condition'] = process['condition']
