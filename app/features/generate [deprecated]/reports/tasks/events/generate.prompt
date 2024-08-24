@@ -1,0 +1,15 @@
+In BPMN we identify:
+Tasks: Activities that perform some work or operation, e.g., "Send Invoice" or "Process Claim". They are usually represented by an oval shape.
+Events: Points of interest in the process that mark a specific moment or occurrence, e.g., "Order Placed", "Payment Received", or "Timeout Expired". They are often represented by a diamond shape.
+Think of it like this: Tasks are the "doers" while Events are the "happenings"!
+
+Extract the events with it's types and a full description for the event from this process description:
+```
+{process_description}
+```
+
+**Notes**:
+- Make sure that the names of the events are short and consice.
+- Don't specify the tasks as events.
+- If the event doesn't explicitly specified in the text don't extract it.
+- specify the start event and the end event in the process.

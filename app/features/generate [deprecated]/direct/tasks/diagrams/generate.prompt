@@ -1,0 +1,19 @@
+As a bpmn expert given this components:
+
+extracted events:
+{extracted_events}
+
+extracted gateways:
+{extracted_gateways}
+
+extracted tasks:
+{extracted_tasks}
+
+**Process Description**:
+{process_description}
+
+With all components identified, determine the sequence flow between them.
+the desired output is a list of this format:
+`
+    from component (type) -> to another component (type)   
+`

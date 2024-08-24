@@ -1,0 +1,11 @@
+as a json expert represent the given data that represents the participant of a bpmn components as a json list.
+
+**Expected output**:
+a valid json list object of this formate 
+{
+	"components_name":"",
+	"participant_name":"",
+}
+
+**The annotations**
+{annotations}

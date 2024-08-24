@@ -1,0 +1,9 @@
+In Business Process Model and Notation (BPMN), **pools** and **lanes** are used to organize and structure a process diagram, helping to clarify responsibilities and interactions between different participants or departments.
+- **Pools** are used to distinguish between different participants or entities in a process, often representing organizations or departments.
+- **Lanes** within a pool are used to further detail roles, departments, or functions within the same organization or participant, clarifying who performs which tasks in the process.
+
+
+Extract the pools and lanes in this process description:
+```
+{process_description}
+```

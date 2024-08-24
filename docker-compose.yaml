@@ -1,0 +1,17 @@
+version: '3.8'
+
+services:
+  fastapi-app:
+    container_name: generator 
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8055:8055"
+    networks:
+      - new_gateway_network
+
+networks:
+  new_gateway_network:
+      external: true
+      name: identityproviderapi_new_gateway_network

@@ -1,0 +1,187 @@
+{
+    "types": {
+        "A customer": "Actor",
+        "brings in": "Activity",
+        "a defective computer": "Activity Data",
+        "the CRS": "Actor",
+        "checks": "Activity",
+        "the defect": "Activity Data",
+        "hands out": "Activity",
+        "a repair cost calculation": "Activity Data",
+        "If": "XOR Gateway",
+        "the customer decides that the costs are acceptable": "Condition Specification",
+        "otherwise": "XOR Gateway",
+        "she": "Actor",
+        "takes": "Activity",
+        "her computer": "Activity Data",
+        "home unrepaired": "Further Specification",
+        "check": "Activity",
+        "repair": "Activity",
+        "the hardware": "Activity Data",
+        "whereas": "AND Gateway",
+        "configures": "Activity",
+        "the software": "Activity Data",
+        "the proper system functionality": "Activity Data",
+        "tested": "Activity",
+        "an error is detected": "Condition Specification",
+        "another arbitrary repair activity": "Activity Data",
+        "executed": "Activity"
+    },
+    "answer": [
+        [
+            "brings in",
+            "actor performer",
+            "A customer"
+        ],
+        [
+            "brings in",
+            "flow",
+            "checks"
+        ],
+        [
+            "checks",
+            "uses",
+            "the defect"
+        ],
+        [
+            "checks",
+            "actor performer",
+            "the CRS"
+        ],
+        [
+            "checks",
+            "flow",
+            "hands out"
+        ],
+        [
+            "hands out",
+            "uses",
+            "a repair cost calculation"
+        ],
+        [
+            "hands out",
+            "actor performer",
+            "the CRS"
+        ],
+        [
+            "hands out",
+            "flow",
+            "If"
+        ],
+        [
+            "If",
+            "flow",
+            "the customer decides that the costs are acceptable"
+        ],
+        [
+            "If",
+            "same gateway",
+            "otherwise"
+        ],
+        [
+            "the customer decides that the costs are acceptable",
+            "flow",
+            "whereas"
+        ],
+        [
+            "otherwise",
+            "flow",
+            "takes"
+        ],
+        [
+            "takes",
+            "uses",
+            "her computer"
+        ],
+        [
+            "takes",
+            "further specification",
+            "home unrepaired"
+        ],
+        [
+            "takes",
+            "actor performer",
+            "she"
+        ],
+        [
+            "check",
+            "uses",
+            "the hardware"
+        ],
+        [
+            "check",
+            "flow",
+            "repair"
+        ],
+        [
+            "repair",
+            "uses",
+            "the hardware"
+        ],
+        [
+            "repair",
+            "flow",
+            "tested"
+        ],
+        [
+            "whereas",
+            "flow",
+            "check"
+        ],
+        [
+            "whereas",
+            "flow",
+            "checks"
+        ],
+        [
+            "checks",
+            "uses",
+            "the software"
+        ],
+        [
+            "checks",
+            "flow",
+            "configures"
+        ],
+        [
+            "configures",
+            "uses",
+            "the software"
+        ],
+        [
+            "configures",
+            "flow",
+            "tested"
+        ],
+        [
+            "tested",
+            "uses",
+            "the proper system functionality"
+        ],
+        [
+            "tested",
+            "flow",
+            "If"
+        ],
+        [
+            "If",
+            "flow",
+            "an error is detected"
+        ],
+        [
+            "If",
+            "same gateway",
+            "otherwise"
+        ],
+        [
+            "an error is detected",
+            "flow",
+            "executed"
+        ],
+        [
+            "executed",
+            "uses",
+            "another arbitrary repair activity"
+        ]
+    ]
+  }

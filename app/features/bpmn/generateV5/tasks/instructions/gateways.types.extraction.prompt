@@ -1,0 +1,33 @@
+Given the following information:
+
+- **Process Description**: {process_description}
+- **Gateways**: {gateways}
+
+Generate a JSON object that includes:
+1. `"gatewayTypeMapping"`: A mapping of each gateway to its corresponding type.
+2. `"gatewayConditions"`: A mapping of each outgoing connection from a gateway to the subsequent activity, along with the associated condition for that path, you can get the condition from the process description.
+
+**Allowed Gateway Types**:
+- "and gateway", "xor gateway", "or gateway"
+
+**Expected JSON Format**:
+```json
+{
+  "gatewayTypeMapping": {
+    "gateway 1": "xor gateway",
+    "gateway 2": "and gateway"
+  },
+  "gatewayConditions": {
+    "gateway 1": {
+      "some activity name": "Condition1",
+      "some activity name": "Condition2"
+    },
+    "gateway 2": {
+      "some activity name": "Condition3",
+      "some activity name": "Condition4"
+    }
+  }
+}
+```
+
+Ensure the JSON object adheres to this structure.

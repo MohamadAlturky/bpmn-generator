@@ -1,0 +1,20 @@
+As a bpmn expert given this components:
+**process description**:
+{process_description}
+
+**extracted pools and lanes**:
+{extracted_pools_and_lanes}
+
+
+**bpmn components**:
+{bpmn_components}
+
+With all components identified, determine the participant of each task.
+the participant is a pool or a lane
+the desired output is a list of this format:
+`
+    "component name" -> "participant name"
+`
+
+**Notes**:
+don't change the names of the components or the participants.

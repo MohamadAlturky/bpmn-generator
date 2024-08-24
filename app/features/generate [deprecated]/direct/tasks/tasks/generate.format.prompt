@@ -1,0 +1,34 @@
+as a json expert represent the given tasks in a json list.
+
+**Expected output**:
+a valid json list object of this formate 
+{
+    "name":"string",
+    "type":"string",
+    "description":"string",
+}
+
+**Example output**:
+```
+[
+	{
+        "name":"some name",
+        "type":"some type",
+        "description":"some description",
+    },
+    {
+        "name":"some name",
+        "type":"some type",
+        "description":"some description",
+    }
+]
+```
+**The tasks**
+{tasks}
+
+**Notes**:
+write the json inside a section of this formate
+
+```
+the json object
+```

@@ -1,0 +1,48 @@
+as a json expert represent the given connections that represents the sequence flow in a json list.
+
+**Expected output**:
+a valid json list object of this formate 
+{
+	"source_name":"",
+	"source_type":"",
+	"destination_name":"",
+	"destination_type":"",
+}
+**Example output**:
+```
+[
+	{
+		"source_name":"x",
+		"source_type":"type of x",
+		"destination_name":"y",
+		"destination_type":"type of y",
+	},
+    {
+		"source_name":"z",
+		"source_type":"type of z",
+		"destination_name":"c",
+		"destination_type":"type of c",
+	}
+]
+```
+**The connections**
+{connections}
+
+**Notes**:
+write the json inside a section of this formate
+
+```
+the json object
+```
+**Notes**:
+the type is one of these strings:
+"Parallel Gateway"
+"Inclusive Gateway"
+"Exclusive Gateway"
+"Start Event"
+"End Event"
+"intermediate Event"
+"Manual Task"
+"Script Task"
+"User Task"
+"Service Task"

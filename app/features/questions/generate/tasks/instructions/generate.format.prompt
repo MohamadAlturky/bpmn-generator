@@ -1,0 +1,17 @@
+represent the question in a a json list.
+The JSON should have the following example structure:
+
+Example Output:
+
+```json
+[
+  {"question":"question 1 "},
+  {"question":"question 2 "},
+  {"question":"question 3 "},
+  {"question":"question 4 "}
+]
+
+```
+
+**The Questions**:
+{llm_response}

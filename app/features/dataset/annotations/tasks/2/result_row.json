@@ -1,0 +1,261 @@
+{
+    "types": {
+        "a guest": "Actor",
+        "calls": "Activity",
+        "room service": "Actor",
+        "the room-service manager": "Actor", 
+        "takes down": "Activity",
+        "the order": "Activity Data",
+        "She": "Actor",
+        "submits": "Activity",
+        "an order ticket": "Activity Data",
+        "the kitchen": "Actor",
+        "to begin preparing the food": "Further Specification",
+        "gives": "Activity",
+        "an order": "Activity Data",
+        "the sommelier": "Actor",
+        "to fetch wine from the cellar and to prepare any other alcoholic beverages": "Further Specification",
+        "she": "Actor",
+        "assigns": "Activity",
+        "the waiter": "Actor",
+        "While": "AND Gateway",
+        "doing": "Activity",
+        "their tasks": "Activity Data",
+        "readies": "Activity",
+        "a cart": "Activity Data",
+        "delivers": "Activity",
+        "it": "Activity Data",
+        "the guest \u2019 s room": "Actor",
+        "returning": "Activity",
+        "to the room-service station": "Further Specification",
+        "debits": "Activity",
+        "the guest \u2019 s account": "Activity Data",
+        "The waiter": "Actor",
+        "wait": "Activity",
+        "to do the billing": "Activity Data",
+        "if": "XOR Gateway",
+        "he has another order to prepare or deliver": "Condition Specification"
+    },
+    "answer": [
+        [
+            "calls",
+            "actor performer",
+            "a guest"
+        ],
+        [
+            "calls",
+            "actor recipient",
+            "room service"
+        ],
+        [
+            "calls",
+            "flow",
+            "takes down"
+        ],
+        [
+            "takes down",
+            "uses",
+            "the order"
+        ],
+        [
+            "takes down",
+            "actor performer",
+            "the room-service manager"
+        ],
+        [
+            "takes down",
+            "flow",
+            "submits"
+        ],
+        [
+            "submits",
+            "uses",
+            "an order ticket"
+        ],
+        [
+            "submits",
+            "actor performer",
+            "She"
+        ],
+        [
+            "submits",
+            "actor recipient",
+            "the kitchen"
+        ],
+        [
+            "submits",
+            "flow",
+            "gives"
+        ],
+        [
+            "submits",
+            "further specification",
+            "to begin preparing the food" 
+        ],
+        [
+            "gives",
+            "uses",
+            "an order"
+        ],
+        [
+            "gives",
+            "flow",
+            "assigns"
+        ],
+        [
+            "gives",
+            "further specification",
+            "to fetch wine from the cellar and to prepare any other alcoholic beverages"
+        ],
+        [
+            "gives",
+            "actor performer",
+            "She"
+        ],
+        [
+            "gives",
+            "actor recipient",
+            "the sommelier"
+        ],
+        [
+            "assigns",
+            "uses",
+            "the order"
+        ],
+        [
+            "assigns",
+            "actor recipient",
+            "the waiter"
+        ],
+        [
+            "assigns",
+            "actor performer",
+            "she"
+        ],
+        [
+            "assigns",
+            "flow",
+            "While"
+        ],
+        [
+            "While",
+            "flow",
+            "doing"
+        ],
+        [
+            "While",
+            "flow",
+            "readies"
+        ],
+        [
+            "doing",
+            "uses",
+            "their tasks"
+        ],
+        [
+            "doing",
+            "actor performer",
+            "the kitchen"
+        ],
+        [
+            "doing",
+            "flow",
+            "delivers"
+        ],
+        [
+            "doing",
+            "actor performer",
+            "the sommelier"
+        ],
+        [
+            "readies",
+            "uses",
+            "a cart"
+        ],
+        [
+            "readies",
+            "actor performer",
+            "the waiter"
+        ],
+        [
+            "readies",
+            "flow",
+            "delivers"
+        ],
+        [
+            "delivers",
+            "uses",
+            "it"
+        ],
+        [
+            "delivers",
+            "actor performer",
+            "the waiter"
+        ],
+        [
+            "delivers",
+            "actor recipient",
+            "the guest \u2019 s room"
+        ],
+        [
+            "delivers",
+            "flow",
+            "returning"
+        ],
+        [
+            "returning",
+            "actor performer",
+            "the waiter"
+        ],
+        [
+            "returning",
+            "flow",
+            "if"
+        ],
+        [
+            "returning",
+            "further specification",
+            "to the room-service station"
+        ],
+        [
+            "returning",
+            "uses",
+            "the guest \u2019 s account"
+        ],
+        [
+            "debits",
+            "uses",
+            "the guest \u2019 s account"
+        ],
+        [
+            "debits",
+            "actor performer",
+            "the waiter"
+        ],
+        [
+            "wait",
+            "actor performer",
+            "The waiter"
+        ],
+        [
+            "wait",
+            "uses",
+            "to do the billing"
+        ],
+        [
+            "if",
+            "flow",
+            "debits"
+        ],
+        [
+            "if",
+            "flow",
+            "he has another order to prepare or deliver"
+        ],
+        [
+            "he has another order to prepare or deliver",
+            "flow",
+            "wait"
+        ]
+    ]
+  }

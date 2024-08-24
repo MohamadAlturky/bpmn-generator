@@ -1,0 +1,56 @@
+as a json expert represent the given gateways in a json list.
+
+**Expected output**:
+a valid json list object of this formate 
+{
+	"name":"string",
+	"type":"string",
+	"description":"string",
+	"inputs":[
+		{
+			"name":"string",
+			"description":"string"
+		}
+	],
+	"outputs":[
+		{
+			"name":"string",
+			"description":"string"
+		}
+	],
+}
+
+**Example output**:
+```
+[
+	{
+		"name":"gateway name",
+		"type":"Exclusive",
+		"description":"some description",
+		"inputs":[
+			{
+				"name":"some task",
+				"description":"some description"
+			}
+		],
+		"outputs":[
+			{
+				"name":"some task",
+				"description":"some description"
+			}
+		]
+	}
+]
+```
+
+**The Gateways**
+{gateways}
+
+**Notes**:
+write the json inside a section of this formate
+
+```
+
+the json object
+
+```
