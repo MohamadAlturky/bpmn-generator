@@ -1,0 +1,199 @@
+{
+    "types": {
+        "a company": "Actor",
+        "makes": "Activity",
+        "the decision to go public": "Activity Data",
+        "select": "Activity",
+        "the underwriters": "Activity Data",
+        "They": "Actor",
+        "prepare": "Activity",
+        "a registration statement for the approval of the Securities and Exchange Commission ( SEC )": "Activity Data",
+        "they": "Actor",
+        "check": "Activity",
+        "that the issue complies with the so-called blue-sky laws of each state that regulate sales of securities within the state": "Further Specification",
+        "While": "AND Gateway",
+        "awaiting": "Activity",
+        "approval": "Activity Data",
+        "underwriters": "Actor",
+        "firm up": "Activity",
+        "the issue price": "Activity Data",
+        "arrange": "Activity",
+        "a road show": "Activity Data",
+        "to talk to potential investors": "Further Specification",
+        "receive": "Activity",
+        "clearance": "Activity Data",
+        "fix": "Activity",
+        "enter": "Activity",
+        "into a firm commitment to buy the stock": "Activity Data",
+        "offer": "Activity",
+        "it": "Activity Data",
+        "the public": "Actor"
+    },
+    "answer": [
+        [
+            "makes",
+            "actor performer",
+            "a company"
+        ],
+        [
+            "makes",
+            "flow",
+            "select"
+        ],
+        [
+            "makes",
+            "uses",
+            "the decision to go public"
+        ],
+        [
+            "select",
+            "uses",
+            "the underwriters"
+        ],
+        [
+            "select",
+            "flow",
+            "prepare"
+        ],
+        [
+            "prepare",
+            "uses",
+            "a registration statement for the approval of the Securities and Exchange Commission ( SEC )"
+        ],
+        [
+            "prepare",
+            "actor performer",
+            "They"
+        ],
+        [
+            "prepare",
+            "flow",
+            "check"
+        ],
+        [
+            "check",
+            "actor performer",
+            "they"
+        ],
+        [
+            "check",
+            "flow",
+            "While"
+        ],
+        [
+            "check",
+            "further specification",
+            "that the issue complies with the so-called blue-sky laws of each state that regulate sales of securities within the state"
+        ],
+        [
+            "While",
+            "flow",
+            "firm up"
+        ],
+        [
+            "While",
+            "flow",
+            "awaiting"
+        ],
+        [
+            "awaiting",
+            "uses",
+            "approval"
+        ],
+        [
+            "awaiting",
+            "flow",
+            "receive"
+        ],
+        [
+            "firm up",
+            "uses",
+            "the issue price"
+        ],
+        [
+            "firm up",
+            "actor performer",
+            "underwriters"
+        ],
+        [
+            "firm up",
+            "flow",
+            "arrange"
+        ],
+        [
+            "arrange",
+            "uses",
+            "a road show"
+        ],
+        [
+            "arrange",
+            "actor performer",
+            "They"
+        ],
+        [
+            "arrange",
+            "flow",
+            "receive"
+        ],
+        [
+            "arrange",
+            "further specification",
+            "to talk to potential investors"
+        ],
+        [
+            "receive",
+            "flow",
+            "fix"
+        ],
+        [
+            "receive",
+            "uses",
+            "clearance"
+        ],
+        [
+            "fix",
+            "uses",
+            "the issue price"
+        ],
+        [
+            "fix",
+            "actor performer",
+            "underwriters"
+        ],
+        [
+            "fix",
+            "flow",
+            "enter"
+        ],
+        [
+            "enter",
+            "uses",
+            "into a firm commitment to buy the stock"
+        ],
+        [
+            "enter",
+            "actor performer",
+            "they"
+        ],
+        [
+            "enter",
+            "flow",
+            "offer"
+        ],
+        [
+            "offer",
+            "uses",
+            "it"
+        ],
+        [
+            "offer",
+            "actor performer",
+            "they"
+        ],
+        [
+            "offer",
+            "actor recipient",
+            "the public"
+        ]
+    ]
+}

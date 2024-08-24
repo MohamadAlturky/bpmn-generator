@@ -1,15 +1,17 @@
 version: '3.8'
 
 services:
-  web:
+  fastapi-app:
+    container_name: generator 
     build:
-      context: . 
+      context: .
+      dockerfile: Dockerfile
     ports:
-      - "8055:8055"  
-    environment:
-      - PYTHONDONTWRITEBYTECODE=1
-      - PYTHONUNBUFFERED=1
-    volumes:
-      - .:/app 
-    command: ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8055"]
+      - "8055:8055"
+    networks:
+      - new_gateway_network
 
+networks:
+  new_gateway_network:
+      external: true
+      name: identityproviderapi_new_gateway_network

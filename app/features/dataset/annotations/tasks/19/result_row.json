@@ -1,0 +1,633 @@
+{
+    "types": {
+        "the customer": "Actor",
+        "transmits": "Activity",
+        "his data": "Activity Data",
+        "the customer service department": "Actor",
+        "The customer data": "Activity Data",
+        "received": "Activity",
+        "customer service": "Actor",
+        "a customer data object": "Activity Data",
+        "entered": "Activity",
+        "into the CRM system": "Further Specification",
+        "it": "Activity Data",
+        "compared": "Activity",
+        "the internal customer data base": "Activity Data",
+        "checked": "Activity",
+        "for completeness and plausibility": "Further Specification",
+        "In case of": "XOR Gateway",
+        "any errors": "Condition Specification",
+        "these": "Activity Data",
+        "corrected": "Activity",
+        "In case": "XOR Gateway",
+        "the customer does not exist in the customer data base": "Condition Specification",
+        "a new customer object": "Activity Data",
+        "created": "Activity",
+        "prepare": "Activity",
+        "the contract documents for the power supplier switch": "Activity Data",
+        "check": "Activity",
+        "the contract documents": "Activity Data",
+        "the CIS": "Actor",
+        "a negative response": "Condition Specification",
+        "the causing issues": "Activity Data",
+        "analyzed": "Activity",
+        "resolved": "Activity",
+        "generated": "Activity",
+        "a positive response": "Condition Specification",
+        "a confirmation document": "Activity Data",
+        "sent out": "Activity",
+        "A request": "Activity Data",
+        "the grid operator": "Actor",
+        "The switch-over request": "Activity Data",
+        "a response comment": "Activity Data",
+        "In the case of": "XOR Gateway",
+        "supplier concurrence": "Condition Specification",
+        "inform": "Activity",
+        "all involved suppliers": "Actor",
+        "demand": "Activity",
+        "the resolution of the conflict": "Activity Data",
+        "The grid operator": "Actor",
+        "communicates": "Activity",
+        "the old supplier": "Actor",
+        "carries out": "Activity",
+        "the termination of the sales agreement": "Activity Data",
+        "If": "XOR Gateway",
+        "there are not any objections by the grid operator": "Condition Specification",
+        "creates": "Activity",
+        "a CIS contract": "Activity Data",
+        "The customer": "Actor",
+        "the contract details": "Activity Data",
+        "either": "XOR Gateway",
+        "withdraw": "Activity",
+        "the switch contract": "Activity Data",
+        "or": "XOR Gateway",
+        "confirm": "Activity",
+        "the power meter data": "Activity Data",
+        "the customer service": "Actor",
+        "via messages containing a services consumption report": "Further Specification",
+        "At the same time": "AND Gateway",
+        "computes": "Activity",
+        "the final billing": "Activity Data",
+        "sends": "Activity",
+        "receiving": "Activity",
+        "the meter data": "Activity Data",
+        "imports": "Activity"
+    },
+    "answer": [
+        [
+            "transmits",
+            "uses",
+            "his data"
+        ],
+        [
+            "transmits",
+            "actor performer",
+            "the customer"
+        ],
+        [
+            "transmits",
+            "actor recipient",
+            "the customer service department"
+        ],
+        [
+            "transmits",
+            "flow",
+            "received"
+        ],
+        [
+            "received",
+            "uses",
+            "The customer data"
+        ],
+        [
+            "received",
+            "flow",
+            "entered"
+        ],
+        [
+            "received",
+            "actor recipient",
+            "customer service"
+        ],
+        [
+            "entered",
+            "uses",
+            "a customer data object"
+        ],
+        [
+            "entered",
+            "flow",
+            "compared"
+        ],
+        [
+            "entered",
+            "further specification",
+            "into the CRM system"
+        ],
+        [
+            "compared",
+            "uses",
+            "it"
+        ],
+        [
+            "compared",
+            "flow",
+            "checked"
+        ],
+        [
+            "compared",
+            "uses",
+            "the internal customer data base"
+        ],
+        [
+            "checked",
+            "flow",
+            "In case of"
+        ],
+        [
+            "checked",
+            "further specification",
+            "for completeness and plausibility"
+        ],
+        [
+            "In case of",
+            "flow",
+            "any errors"
+        ],
+        [
+            "In case of",
+            "flow",
+            "In case"
+        ],
+        [
+            "any errors",
+            "flow",
+            "corrected"
+        ],
+        [
+            "corrected",
+            "flow",
+            "In case"
+        ],
+        [
+            "corrected",
+            "uses",
+            "these"
+        ],
+        [
+            "In case",
+            "flow",
+            "the customer does not exist in the customer data base"
+        ],
+        [
+            "In case",
+            "flow",
+            "check"
+        ],
+        [
+            "the customer does not exist in the customer data base",
+            "flow",
+            "created"
+        ],
+        [
+            "created",
+            "uses",
+            "a new customer object"
+        ],
+        [
+            "created",
+            "flow",
+            "prepare"
+        ],
+        [
+            "prepare",
+            "uses",
+            "the contract documents for the power supplier switch"
+        ],
+        [
+            "prepare",
+            "flow",
+            "check"
+        ],
+        [
+            "check",
+            "flow",
+            "In case of"
+        ],
+        [
+            "check",
+            "uses",
+            "the contract documents"
+        ],
+        [
+            "check",
+            "actor performer",
+            "the CIS"
+        ],
+        [
+            "In case of",
+            "flow",
+            "a negative response"
+        ],
+        [
+            "In case of",
+            "same gateway",
+            "In case of"
+        ],
+        [
+            "a negative response",
+            "flow",
+            "analyzed"
+        ],
+        [
+            "analyzed",
+            "uses",
+            "the causing issues"
+        ],
+        [
+            "analyzed",
+            "flow",
+            "resolved"
+        ],
+        [
+            "resolved",
+            "uses",
+            "the causing issues"
+        ],
+        [
+            "resolved",
+            "flow",
+            "generated"
+        ],
+        [
+            "generated",
+            "uses",
+            "the contract documents"
+        ],
+        [
+            "generated",
+            "flow",
+            "check"
+        ],
+        [
+            "In case of",
+            "flow",
+            "a positive response"
+        ],
+        [
+            "a positive response",
+            "flow",
+            "sent out"
+        ],
+        [
+            "sent out",
+            "uses",
+            "a confirmation document"
+        ],
+        [
+            "sent out",
+            "actor recipient",
+            "the customer"
+        ],
+        [
+            "sent out",
+            "flow",
+            "sent out"
+        ],
+        [
+            "sent out",
+            "uses",
+            "A request"
+        ],
+        [
+            "sent out",
+            "actor recipient",
+            "the grid operator"
+        ],
+        [
+            "sent out",
+            "actor performer",
+            "the CIS"
+        ],
+        [
+            "sent out",
+            "flow",
+            "checked"
+        ],
+        [
+            "checked",
+            "uses",
+            "The switch-over request"
+        ],
+        [
+            "checked",
+            "actor performer",
+            "the grid operator"
+        ],
+        [
+            "checked",
+            "flow",
+            "transmits"
+        ],
+        [
+            "transmits",
+            "uses",
+            "a response comment"
+        ],
+        [
+            "transmits",
+            "actor performer",
+            "the grid operator"
+        ],
+        [
+            "transmits",
+            "flow",
+            "In the case of"
+        ],
+        [
+            "In the case of",
+            "flow",
+            "supplier concurrence"
+        ],
+        [
+            "In the case of",
+            "same gateway",
+            "If"
+        ],
+        [
+            "supplier concurrence",
+            "flow",
+            "inform"
+        ],
+        [
+            "inform",
+            "actor performer",
+            "the grid operator"
+        ],
+        [
+            "inform",
+            "actor recipient",
+            "all involved suppliers"
+        ],
+        [
+            "inform",
+            "flow",
+            "demand"
+        ],
+        [
+            "demand",
+            "uses",
+            "the resolution of the conflict"
+        ],
+        [
+            "demand",
+            "actor performer",
+            "the grid operator"
+        ],
+        [
+            "demand",
+            "flow",
+            "communicates"
+        ],
+        [
+            "communicates",
+            "actor performer",
+            "The grid operator"
+        ],
+        [
+            "communicates",
+            "actor recipient",
+            "the old supplier"
+        ],
+        [
+            "communicates",
+            "flow",
+            "carries out"
+        ],
+        [
+            "carries out",
+            "uses",
+            "the termination of the sales agreement"
+        ],
+        [
+            "carries out",
+            "actor performer",
+            "The grid operator"
+        ],
+        [
+            "If",
+            "flow",
+            "there are not any objections by the grid operator"
+        ],
+        [
+            "there are not any objections by the grid operator",
+            "flow",
+            "creates"
+        ],
+        [
+            "creates",
+            "uses",
+            "a CIS contract"
+        ],
+        [
+            "creates",
+            "actor performer",
+            "customer service"
+        ],
+        [
+            "creates",
+            "flow",
+            "check"
+        ],
+        [
+            "check",
+            "uses",
+            "the contract details"
+        ],
+        [
+            "check",
+            "actor performer",
+            "The customer"
+        ],
+        [
+            "check",
+            "flow",
+            "either"
+        ],
+        [
+            "either",
+            "flow",
+            "withdraw"
+        ],
+        [
+            "either",
+            "flow",
+            "or"
+        ],
+        [
+            "either",
+            "same gateway",
+            "or"
+        ],
+        [
+            "withdraw",
+            "uses",
+            "the switch contract"
+        ],
+        [
+            "or",
+            "flow",
+            "confirm"
+        ],
+        [
+            "confirm",
+            "flow",
+            "transmits"
+        ],
+        [
+            "confirm",
+            "uses",
+            "it"
+        ],
+        [
+            "transmits",
+            "uses",
+            "the power meter data"
+        ],
+        [
+            "transmits",
+            "actor performer",
+            "the grid operator"
+        ],
+        [
+            "transmits",
+            "actor recipient",
+            "the customer service"
+        ],
+        [
+            "transmits",
+            "actor recipient",
+            "the old supplier"
+        ],
+        [
+            "transmits",
+            "further specification",
+            "via messages containing a services consumption report"
+        ],
+        [
+            "transmits",
+            "flow",
+            "At the same time"
+        ],
+        [
+            "At the same time",
+            "flow",
+            "transmits"
+        ],
+        [
+            "At the same time",
+            "flow",
+            "computes"
+        ],
+        [
+            "At the same time",
+            "flow",
+            "creates"
+        ],
+        [
+            "computes",
+            "uses",
+            "the final billing"
+        ],
+        [
+            "computes",
+            "actor performer",
+            "the grid operator"
+        ],
+        [
+            "computes",
+            "flow",
+            "sends"
+        ],
+        [
+            "sends",
+            "uses",
+            "it"
+        ],
+        [
+            "sends",
+            "actor performer",
+            "the grid operator"
+        ],
+        [
+            "sends",
+            "actor recipient",
+            "the old supplier"
+        ],
+        [
+            "sends",
+            "flow",
+            "receiving"
+        ],
+        [
+            "creates",
+            "uses",
+            "the final billing"
+        ],
+        [
+            "creates",
+            "actor performer",
+            "the old supplier"
+        ],
+        [
+            "creates",
+            "flow",
+            "sends"
+        ],
+        [
+            "sends",
+            "flow",
+            "receiving"
+        ],
+        [
+            "sends",
+            "uses",
+            "the final billing"
+        ],
+        [
+            "sends",
+            "actor recipient",
+            "the customer"
+        ],
+        [
+            "sends",
+            "actor performer",
+            "the old supplier"
+        ],
+        [
+            "receiving",
+            "uses",
+            "the meter data"
+        ],
+        [
+            "receiving",
+            "actor performer",
+            "customer service"
+        ],
+        [
+            "receiving",
+            "flow",
+            "imports"
+        ],
+        [
+            "imports",
+            "uses",
+            "the meter data"
+        ],
+        [
+            "imports",
+            "actor performer",
+            "customer service"
+        ]
+    ]
+}

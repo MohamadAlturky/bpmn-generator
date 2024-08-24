@@ -1,0 +1,794 @@
+{
+    "types": {
+        "At": "Activity Data",
+        "the customer": "Actor",
+        "perceives": "Activity",
+        "her subscribed service": "Activity Data",
+        "has degraded": "Further Specification",
+        "A list with all the problem parameters": "Activity Data",
+        "sent": "Activity",
+        "the Customer Service department of TELECO": "Actor",
+        "an employee": "Actor",
+        "enters": "Activity",
+        "a problem report": "Activity Data",
+        "the problem report": "Activity Data",
+        "compared": "Activity",
+        "to the customer SLA": "Further Specification",
+        "identify": "Activity",
+        "the details of the service degradation": "Activity Data",
+        "the necessary counter measures": "Activity Data",
+        "determined": "Activity",
+        "An electronic service": "Actor",
+        "determines": "Activity",
+        "the significance of the customer": "Activity Data",
+        "In case": "XOR Gateway",
+        "the customer is premium": "Condition Specification",
+        "problem": "Activity Data",
+        "fix": "Activity",
+        "the customer is of certain significance": "Condition Specification",
+        "otherwise": "XOR Gateway",
+        "a detailed problem report": "Activity Data",
+        "created": "Activity",
+        "The detailed problem report": "Activity Data",
+        "Service Management": "Actor",
+        "deals": "Activity",
+        "violations of quality in services": "Activity Data",
+        "Service management": "Actor",
+        "investigates": "Activity",
+        "the problem": "Activity Data",
+        "Service Management assesses the problem to be not analyzable by themselves": "Condition Specification",
+        "the detailed problem report": "Activity Data",
+        "sent out": "Activity",
+        "Resource Provisioning": "Actor",
+        "If": "XOR Gateway",
+        "Service Management is sure they can analyze it": "Condition Specification",
+        "they": "Actor",
+        "perform": "Activity",
+        "the analysis": "Activity Data",
+        "create": "Activity",
+        "a trouble report": "Activity Data",
+        "receives": "Activity",
+        "it": "Activity Data",
+        "checked": "Activity",
+        "no problems are detected": "Condition Specification",
+        "a notification": "Activity Data",
+        "a problem is detected": "Condition Specification",
+        "this": "Activity Data",
+        "analyzed": "Activity",
+        "trouble report": "Activity Data",
+        "the normal execution notification": "Activity Data",
+        "included": "Activity",
+        "sent back": "Activity",
+        "prepares": "Activity",
+        "the final status report": "Activity Data",
+        "For the case": "XOR Gateway",
+        "no problem was detected at all": "Condition Specification",
+        "the actual service performance": "Activity Data",
+        "the Customer Service": "Actor",
+        "minor corrective actions are required": "Condition Specification",
+        "undertake": "Activity",
+        "corrective actions": "Activity Data",
+        "the problem resolution report": "Activity Data",
+        "Customer Service": "Actor",
+        "automatic resource restoration from Resource Provisioning is required": "Condition Specification",
+        "a request": "Activity Data",
+        "This message": "Activity Data",
+        "the restoration request": "Activity Data",
+        "received": "Activity",
+        "all possible errors": "Activity Data",
+        "tracked": "Activity",
+        "undertaken": "Activity",
+        "a trouble-shooting report": "Activity Data",
+        "This report": "Activity Data",
+        "The trouble-shooting report": "Activity Data",
+        "creation": "Activity",
+        "two concurrent activities are triggered": "AND Gateway",
+        "a report": "Activity Data",
+        "an SLA violation rebate": "Activity Data",
+        "reported": "Activity",
+        "Billing & Collections": "Actor",
+        "who": "Actor",
+        "adjust": "Activity",
+        "the billing": "Activity Data",
+        "The report": "Activity Data",
+        "her": "Actor",
+        "the report": "Activity Data"
+    },
+    "answer": [
+        [
+            "perceives",
+            "actor performer",
+            "the customer"
+        ],
+        [
+            "perceives",
+            "flow",
+            "sent"
+        ],
+        [
+            "perceives",
+            "uses",
+            "her subscribed service"
+        ],
+        [
+            "perceives",
+            "further specification",
+            "has degraded"
+        ],
+        [
+            "sent",
+            "uses",
+            "A list with all the problem parameters"
+        ],
+        [
+            "sent",
+            "actor recipient",
+            "the Customer Service department of TELECO"
+        ],
+        [
+            "sent",
+            "flow",
+            "enters"
+        ],
+        [
+            "enters",
+            "uses",
+            "a problem report"
+        ],
+        [
+            "enters",
+            "actor performer",
+            "an employee"
+        ],
+        [
+            "enters",
+            "flow",
+            "compared"
+        ],
+        [
+            "compared",
+            "uses",
+            "the problem report"
+        ],
+        [
+            "compared",
+            "flow",
+            "identify"
+        ],
+        [
+            "compared",
+            "further specification",
+            "to the customer SLA"
+        ],
+        [
+            "identify",
+            "flow",
+            "determined"
+        ],
+        [
+            "determined",
+            "uses",
+            "the necessary counter measures"
+        ],
+        [
+            "determined",
+            "flow",
+            "determines"
+        ],
+        [
+            "determines",
+            "uses",
+            "the significance of the customer"
+        ],
+        [
+            "determines",
+            "actor performer",
+            "An electronic service"
+        ],
+        [
+            "determines",
+            "flow",
+            "In case"
+        ],
+        [
+            "In case",
+            "flow",
+            "the customer is premium"
+        ],
+        [
+            "In case",
+            "same gateway",
+            "In case"
+        ],
+        [
+            "the customer is premium",
+            "flow",
+            "fix"
+        ],
+        [
+            "fix",
+            "uses",
+            "problem"
+        ],
+        [
+            "In case",
+            "flow",
+            "the customer is of certain significance"
+        ],
+        [
+            "In case",
+            "same gateway",
+            "otherwise"
+        ],
+        [
+            "the customer is of certain significance",
+            "flow",
+            "determines"
+        ],
+        [
+            "otherwise",
+            "flow",
+            "created"
+        ],
+        [
+            "created",
+            "uses",
+            "a detailed problem report"
+        ],
+        [
+            "created",
+            "flow",
+            "sent"
+        ],
+        [
+            "sent",
+            "uses",
+            "The detailed problem report"
+        ],
+        [
+            "sent",
+            "actor recipient",
+            "Service Management"
+        ],
+        [
+            "sent",
+            "flow",
+            "deals"
+        ],
+        [
+            "deals",
+            "uses",
+            "violations of quality in services"
+        ],
+        [
+            "deals",
+            "actor performer",
+            "Service Management"
+        ],
+        [
+            "deals",
+            "flow",
+            "investigates"
+        ],
+        [
+            "investigates",
+            "actor performer",
+            "Service management"
+        ],
+        [
+            "investigates",
+            "flow",
+            "In case"
+        ],
+        [
+            "investigates",
+            "uses",
+            "the problem"
+        ],
+        [
+            "In case",
+            "flow",
+            "Service Management assesses the problem to be not analyzable by themselves"
+        ],
+        [
+            "In case",
+            "same gateway",
+            "If"
+        ],
+        [
+            "Service Management assesses the problem to be not analyzable by themselves",
+            "flow",
+            "sent out"
+        ],
+        [
+            "sent out",
+            "uses",
+            "the detailed problem report"
+        ],
+        [
+            "sent out",
+            "actor recipient",
+            "Resource Provisioning"
+        ],
+        [
+            "sent out",
+            "flow",
+            "receives"
+        ],
+        [
+            "If",
+            "flow",
+            "Service Management is sure they can analyze it"
+        ],
+        [
+            "Service Management is sure they can analyze it",
+            "flow",
+            "perform"
+        ],
+        [
+            "perform",
+            "uses",
+            "the analysis"
+        ],
+        [
+            "perform",
+            "actor performer",
+            "they"
+        ],
+        [
+            "perform",
+            "flow",
+            "create"
+        ],
+        [
+            "create",
+            "uses",
+            "a trouble report"
+        ],
+        [
+            "create",
+            "actor performer",
+            "they"
+        ],
+        [
+            "create",
+            "flow",
+            "receives"
+        ],
+        [
+            "receives",
+            "uses",
+            "the detailed problem report"
+        ],
+        [
+            "receives",
+            "actor recipient",
+            "Resource Provisioning"
+        ],
+        [
+            "receives",
+            "flow",
+            "checked"
+        ],
+        [
+            "checked",
+            "flow",
+            "If"
+        ],
+        [
+            "checked",
+            "uses",
+            "it"
+        ],
+        [
+            "If",
+            "flow",
+            "no problems are detected"
+        ],
+        [
+            "If",
+            "same gateway",
+            "If"
+        ],
+        [
+            "no problems are detected",
+            "flow",
+            "created"
+        ],
+        [
+            "created",
+            "uses",
+            "a notification"
+        ],
+        [
+            "created",
+            "flow",
+            "included"
+        ],
+        [
+            "If",
+            "flow",
+            "a problem is detected"
+        ],
+        [
+            "a problem is detected",
+            "flow",
+            "analyzed"
+        ],
+        [
+            "analyzed",
+            "uses",
+            "this"
+        ],
+        [
+            "analyzed",
+            "actor performer",
+            "Resource Provisioning"
+        ],
+        [
+            "analyzed",
+            "flow",
+            "created"
+        ],
+        [
+            "created",
+            "uses",
+            "a trouble report"
+        ],
+        [
+            "created",
+            "flow",
+            "included"
+        ],
+        [
+            "included",
+            "uses",
+            "trouble report"
+        ],
+        [
+            "included",
+            "uses",
+            "the normal execution notification"
+        ],
+        [
+            "included",
+            "flow",
+            "sent back"
+        ],
+        [
+            "sent back",
+            "actor recipient",
+            "Service Management"
+        ],
+        [
+            "sent back",
+            "flow",
+            "prepares"
+        ],
+        [
+            "prepares",
+            "uses",
+            "the final status report"
+        ],
+        [
+            "prepares",
+            "actor performer",
+            "Service Management"
+        ],
+        [
+            "prepares",
+            "flow",
+            "For the case"
+        ],
+        [
+            "For the case",
+            "flow",
+            "no problem was detected at all"
+        ],
+        [
+            "For the case",
+            "same gateway",
+            "For the case"
+        ],
+        [
+            "no problem was detected at all",
+            "flow",
+            "sent back"
+        ],
+        [
+            "sent back",
+            "uses",
+            "the actual service performance"
+        ],
+        [
+            "sent back",
+            "actor recipient",
+            "the Customer Service"
+        ],
+        [
+            "sent back",
+            "flow",
+            "receives"
+        ],
+        [
+            "For the case",
+            "flow",
+            "minor corrective actions are required"
+        ],
+        [
+            "For the case",
+            "same gateway",
+            "For the case"
+        ],
+        [
+            "minor corrective actions are required",
+            "flow",
+            "undertake"
+        ],
+        [
+            "undertake",
+            "uses",
+            "corrective actions"
+        ],
+        [
+            "undertake",
+            "actor performer",
+            "Service Management"
+        ],
+        [
+            "undertake",
+            "flow",
+            "created"
+        ],
+        [
+            "created",
+            "uses",
+            "the problem resolution report"
+        ],
+        [
+            "created",
+            "flow",
+            "sent out"
+        ],
+        [
+            "sent out",
+            "uses",
+            "the problem resolution report"
+        ],
+        [
+            "sent out",
+            "actor recipient",
+            "Customer Service"
+        ],
+        [
+            "sent out",
+            "flow",
+            "receives"
+        ],
+        [
+            "For the case",
+            "flow",
+            "automatic resource restoration from Resource Provisioning is required"
+        ],
+        [
+            "automatic resource restoration from Resource Provisioning is required",
+            "flow",
+            "create"
+        ],
+        [
+            "create",
+            "uses",
+            "a request"
+        ],
+        [
+            "create",
+            "actor performer",
+            "Service Management"
+        ],
+        [
+            "create",
+            "flow",
+            "sent"
+        ],
+        [
+            "sent",
+            "actor recipient",
+            "Resource Provisioning"
+        ],
+        [
+            "sent",
+            "uses",
+            "This message"
+        ],
+        [
+            "sent",
+            "flow",
+            "received"
+        ],
+        [
+            "received",
+            "uses",
+            "the restoration request"
+        ],
+        [
+            "received",
+            "flow",
+            "tracked"
+        ],
+        [
+            "tracked",
+            "uses",
+            "all possible errors"
+        ],
+        [
+            "tracked",
+            "flow",
+            "undertaken"
+        ],
+        [
+            "undertaken",
+            "uses",
+            "corrective actions"
+        ],
+        [
+            "undertaken",
+            "actor performer",
+            "Resource Provisioning"
+        ],
+        [
+            "undertaken",
+            "flow",
+            "created"
+        ],
+        [
+            "created",
+            "uses",
+            "a trouble-shooting report"
+        ],
+        [
+            "created",
+            "flow",
+            "sent out"
+        ],
+        [
+            "sent out",
+            "uses",
+            "This report"
+        ],
+        [
+            "sent out",
+            "actor recipient",
+            "Service Management"
+        ],
+        [
+            "sent out",
+            "flow",
+            "received"
+        ],
+        [
+            "received",
+            "uses",
+            "The trouble-shooting report"
+        ],
+        [
+            "received",
+            "actor recipient",
+            "Service Management"
+        ],
+        [
+            "received",
+            "flow",
+            "creation"
+        ],
+        [
+            "creation",
+            "flow",
+            "receives"
+        ],
+        [
+            "creation",
+            "uses",
+            "the problem resolution report"
+        ],
+        [
+            "receives",
+            "uses",
+            "the problem resolution report"
+        ],
+        [
+            "receives",
+            "uses",
+            "the actual service performance"
+        ],
+        [
+            "receives",
+            "flow",
+            "two concurrent activities are triggered"
+        ],
+        [
+            "receives",
+            "actor recipient",
+            "Customer Service"
+        ],
+        [
+            "two concurrent activities are triggered",
+            "flow",
+            "reported"
+        ],
+        [
+            "two concurrent activities are triggered",
+            "flow",
+            "created"
+        ],
+        [
+            "created",
+            "uses",
+            "a report"
+        ],
+        [
+            "created",
+            "flow",
+            "sent out"
+        ],
+        [
+            "reported",
+            "uses",
+            "an SLA violation rebate"
+        ],
+        [
+            "reported",
+            "actor recipient",
+            "Billing & Collections"
+        ],
+        [
+            "reported",
+            "flow",
+            "adjust"
+        ],
+        [
+            "adjust",
+            "uses",
+            "the billing"
+        ],
+        [
+            "adjust",
+            "actor performer",
+            "who"
+        ],
+        [
+            "adjust",
+            "flow",
+            "sent out"
+        ],
+        [
+            "sent out",
+            "uses",
+            "The report"
+        ],
+        [
+            "sent out",
+            "actor recipient",
+            "her"
+        ],
+        [
+            "sent out",
+            "flow",
+            "receives"
+        ],
+        [
+            "receives",
+            "uses",
+            "the report"
+        ],
+        [
+            "receives",
+            "actor recipient",
+            "the customer"
+        ],
+        [
+            "receives",
+            "actor performer",
+            "Customer Service"
+        ]
+    ]
+}
