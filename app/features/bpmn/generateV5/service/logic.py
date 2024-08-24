@@ -230,13 +230,23 @@ class Service:
         edges = []
 
         for actor, activities in data['actorActivityMapping'].items():
-            nodes[actor] = {'id':uuid.uuid4(),'name': actor,'type':"pool"}
-            # nodes[actor] = {'id':uuid.uuid4(),'name': actor, 'parentId': None,'type':"pool"}
+            # nodes[actor] = {'id':uuid.uuid4(),'name': actor,'type':"pool"}
+            nodes[actor] = {'id':uuid.uuid4(),'name': actor, 'parentId': None,'type':"pool"}
             
             for activity in activities:
                 if activity not in nodes:
-                    nodes[activity] = {'id':uuid.uuid4(),'name': activity,'type':None}
-                    # nodes[activity] = {'id':uuid.uuid4(),'name': activity, 'parentId': nodes[actor]['id'],'type':None}
+                    # nodes[activity] = {'id':uuid.uuid4(),'name': activity,'type':None}
+                    print("Actor")
+                    print("Actor")
+                    print("Actor")
+                    print("Actor")
+                    print("Actor")
+                    
+                    nodes[activity] = {'id':uuid.uuid4(),'name': activity, 'parentId': nodes[actor]['id'].__str__(),'type':None}
+                    print("Actor")
+                    print("Actor")
+                    print("Actor")
+                    print(nodes[activity])
 
         for process in connections:
             if process['source'] not in nodes:
@@ -258,18 +268,29 @@ class Service:
 
         for element, type in data['elementTypeMapping'].items():
             if element in nodes:
-                nodes[element] = {'id':nodes[element]["id"],'name': element,'type':type_representer(type)}
+                nodes[element] = {'id':nodes[element]["id"],'name': element,'parentId': nodes[element].get("parentId"),'type':type_representer(type)}
         for element, type in gateways_data['gatewayTypeMapping'].items():
             if element in nodes:
-                nodes[element] = {'id':nodes[element]["id"],'name': element,'type':type_representer(type)}
+                # nodes[element] = {'id':nodes[element]["id"],'name': element,'type':type_representer(type)}
                 # nodes[element] = {'id':nodes[element]["id"],'name': element, 'parentId': nodes[element]["parentId"],'type':type_representer(type)}
+                nodes[element] = {
+                    'id': nodes[element].get("id"),
+                    'name': element,
+                    'parentId': nodes[element].get("parentId"),
+                    'type': type_representer(type)
+                }
 
-
-        nodes_list = [{'id': value['id'],'name': key,'type': value['type']} for key, value in nodes.items()]
+        # nodes_list = [{'id': value['id'],'name': key,'type': value['type']} for key, value in nodes.items()]
         # nodes_list = [{'id': value['id'],'name': key, 'parentId': value['parentId'],'type': value['type']} for key, value in nodes.items()]
-
-
-
+        nodes_list = [
+            {
+                'id': value.get('id'),
+                'name': key,
+                'parentId': value.get('parentId'),
+                'type': value.get('type')
+            } 
+            for key, value in nodes.items()
+        ]
         print()
         print()
         print()
