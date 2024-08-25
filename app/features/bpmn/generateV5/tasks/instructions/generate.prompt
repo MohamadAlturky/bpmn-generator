@@ -1,13 +1,33 @@
-Generate all possible activity sequences for the given process:
+Please generate all possible activity sequences for the process described below:
 
 **Process Description**: {process_description}
 
-Expected Output:
+**Instructions**:
+1. **Input**: Use the provided process description to identify all activities involved.
+2. **Output**: List all possible sequences of activities flows that can occur in the process.
+3. **Format**: The sequences should be displayed in the following format:
+   ```
+   Activity1 -> Activity2 -> Activity3
+   Activity1 -> Activity4 -> Activity5
+   ...
+   ```
+4. **Considerations**: 
+   - Ensure that all potential branching paths, loops, and parallel activities are considered and represented.
+   - Do not skip any steps; every possible sequence must be shown.
+
+**Example**:
+For the following process:
 ```
-Activity1 -> Activity2 -> Activity3
-Activity1 -> Activity4 -> Activity5
+Process Description: 
+1. Start with Activity A.
+2. After Activity A, either proceed to Activity B or Activity C.
+3. Activity B leads to Activity D, while Activity C leads to Activity E.
+4. Both Activity D and Activity E lead to the final Activity F.
+```
+The expected output should be:
+```
+Activity A -> Activity B -> Activity D -> Activity F
+Activity A -> Activity C -> Activity E -> Activity F
 ```
 
-Apply this logic to generate all sequences, and return the result within these markers: ``` ```.
-Follow the instructions exactly and don't specify anything other than the Expected Output.
-Specify the activity name not it's number
+**Process Description**: {process_description} 

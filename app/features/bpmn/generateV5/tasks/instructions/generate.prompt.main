@@ -1,0 +1,13 @@
+Generate all possible activity sequences for the given process:
+
+**Process Description**: {process_description}
+
+Expected Output:
+```
+Activity1 -> Activity2 -> Activity3
+Activity1 -> Activity4 -> Activity5
+```
+
+Apply this logic to generate all sequences, and return the result within these markers: ``` ```.
+Follow the instructions exactly and don't specify anything other than the Expected Output.
+Specify the activity name not it's number
