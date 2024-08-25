@@ -12,14 +12,16 @@ from core.models.message import Message,MessageHistory,add_message_to_history
 
 # utils
 
-def process_json_data(parsed_data):    
+def process_json_data(types, connections, parent):    
     nodes = []
     edges = []
     node_ids = {}  
-    
-    node_types = parsed_data['types']
+    parentId =  str(uuid.uuid4())
+    nodes.append({"id":  parentId , "name": parent, "type":"type","type_name": "relation","parentId":None})
 
-    for entry in parsed_data['answer']:
+    node_types = types
+
+    for entry in connections:
         source = entry[0]  
         condition = entry[1]  
         target = entry[2]  
@@ -27,12 +29,12 @@ def process_json_data(parsed_data):
         if source not in node_ids:
             node_id = str(uuid.uuid4())  
             node_ids[source] = node_id
-            nodes.append({"id": node_id, "name": source, "type":"type","type_name": node_types.get(source, "not specified")})
+            nodes.append({"id": node_id, "name": source, "type":"type","type_name": node_types.get(source, "not specified"),"parentId":parentId})
 
         if target not in node_ids:
             node_id = str(uuid.uuid4())  
             node_ids[target] = node_id
-            nodes.append({"id": node_id, "name": target, "type":"type","type_name": node_types.get(target, "not specified")})
+            nodes.append({"id": node_id, "name": target, "type":"type","type_name": node_types.get(target, "not specified"),"parentId":parentId})
 
         edges.append({
             "id": str(uuid.uuid4()),
@@ -43,6 +45,29 @@ def process_json_data(parsed_data):
 
     return {"nodes": nodes, "edges": edges}
 
+
+def group_by_connection(data):
+    result = {}
+    
+    for item in data:
+        middle = item[1]
+        if middle not in result:
+            result[middle] = []
+        result[middle].append(item)
+    
+    return result
+
+
+def flatten(objects):
+
+    flattened_nodes = []
+    flattened_edges = []
+
+    for obj in objects:
+        flattened_nodes.extend(obj.get('nodes', []))
+        flattened_edges.extend(obj.get('edges', []))
+
+    return flattened_nodes, flattened_edges
 
 #########################################
 ## read the prompts files  🤖🤖🤖🤖  ##
@@ -63,12 +88,17 @@ class Service:
         content = ""
         with open(parser_path, 'r') as file:
             content = file.read()
-            print(content)
+            # print(content)
         try:
             parsed_content = json.loads(content)
             print(parsed_content)
         except json.JSONDecodeError as e:
             return Result.failure(f"Error parsing JSON: {str(e)}")
         
-        processed_json_data = process_json_data(parsed_content)
-        return Result.success(GeneratedResult(edges=processed_json_data["edges"],nodes=processed_json_data["nodes"]))
+        results = []
+        for middle_element, items in group_by_connection(parsed_content['answer']).items():
+            results.append(process_json_data(parsed_content['types'],items,middle_element))
+        
+        nodes,edges = flatten(results)
+        # processed_json_data = process_json_data(parsed_content['types'],parsed_content['answer'])
+        return Result.success(GeneratedResult(edges=edges,nodes=nodes))
